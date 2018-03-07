@@ -41,9 +41,9 @@
 3、获取spring 容器中配置好的beans
 
 ```java
-		ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
-    Person person = (Person) ac.getBean("person1");
-    System.out.println(person);
+  ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
+  Person person = (Person) ac.getBean("person1");
+  System.out.println(person);
 ```
 
 源码：
