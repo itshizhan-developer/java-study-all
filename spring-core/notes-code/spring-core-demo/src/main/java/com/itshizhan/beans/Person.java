@@ -6,7 +6,7 @@ package com.itshizhan.beans;
 public class Person {
   private String name;
   private Integer age;
-
+  private String gender;
   public String getName() {
     return name;
   }
@@ -23,11 +23,30 @@ public class Person {
     this.age = age;
   }
 
+  public  Person(){
+
+  }
+
+  public String getGender() {
+    return gender;
+  }
+
+  public void setGender(String gender) {
+    this.gender = gender;
+  }
+
+  public Person(String name, Integer age, String gender) {
+    this.name = name;
+    this.age = age;
+    this.gender = gender;
+  }
+
   @Override
   public String toString() {
     return "Person{" +
             "name='" + name + '\'' +
             ", age=" + age +
+            ", gender='" + gender + '\'' +
             '}';
   }
 }
