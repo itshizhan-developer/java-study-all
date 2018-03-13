@@ -24,7 +24,7 @@ public class AppTest {
 
       SqlSession session = sqlSessionFactory.openSession();
       try {
-        Employee employee = (Employee) session.selectOne("selectEmployee", 1);
+        Employee employee = (Employee) session.selectOne("selectEmployee", 2);
         System.out.println(employee);
       } finally {
         session.close();

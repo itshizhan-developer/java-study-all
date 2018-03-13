@@ -8,8 +8,16 @@
     namespace: 名称空间
     id：唯一标识符
     resultType：返回类型
+    #{id} 查询参数
     -->
     <select id="selectEmployee" resultType="com.itshizhan.beans.Employee">
-        select * from t_employee where id = #{id}
+      <!--
+       1: 可以通过sql 语句设置别名
+       2：通过mapUnderscoreToCamelCase 可以驼峰命名
+      select id,last_name lastName,gender,email from t_employee where id = #{id}
+      -->
+
+      select * from t_employee where id = #{id}
+
     </select>
 </mapper>
