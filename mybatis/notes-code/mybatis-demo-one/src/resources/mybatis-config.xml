@@ -41,6 +41,12 @@
         <setting name="mapUnderscoreToCamelCase" value="true"/>
     </settings>
 
+    <!--
+    typeAliases：类型别名
+
+
+    -->
+
     <environments default="development">
         <environment id="development">
             <transactionManager type="JDBC"/>
