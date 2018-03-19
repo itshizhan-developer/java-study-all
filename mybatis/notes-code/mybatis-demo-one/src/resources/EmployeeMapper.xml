@@ -10,7 +10,7 @@
     resultType：返回类型
     #{id} 查询参数
     -->
-    <select id="selectEmployee" resultType="com.itshizhan.beans.Employee">
+    <select id="selectEmployee" resultType="employee">
       <!--
        1: 可以通过sql 语句设置别名
        2：通过mapUnderscoreToCamelCase 可以驼峰命名
