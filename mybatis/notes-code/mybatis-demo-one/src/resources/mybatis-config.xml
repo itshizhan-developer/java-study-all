@@ -88,6 +88,53 @@
 
 
     -->
+
+    <!--
+
+    1. 对象工厂（objectFactory）：参加：http://www.mybatis.org/mybatis-3/zh/configuration.html#objectFactory
+
+    2. 插件（plugins）：
+        MyBatis 允许你在已映射语句执行过程中的某一点进行拦截调用。默认情况下，MyBatis 允许使用插件来拦截的方法调用包括：
+
+        1）Executor (update, query, flushStatements, commit, rollback, getTransaction, close, isClosed)
+        2）ParameterHandler (getParameterObject, setParameters)
+        3）ResultSetHandler (handleResultSets, handleOutputParameters)
+        4）StatementHandler (prepare, parameterize, batch, update, query)
+        MyBatis使用插件是非常简单的，只需实现 Interceptor 接口，并指定想要拦截的方法签名即可
+    -->
+
+
+    <!--
+     配置环境（environments）：
+     1. mybatis 可以配置多种环境，将 SQL 映射应用于多种数据库之中。
+     2. 尽管可以配置多个环境，每个 SqlSessionFactory 实例只能选择其一。
+        如果你想连接两个数据库，就需要创建两个 SqlSessionFactory 实例，每个数据库对应一个,例如
+        SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader, environment);
+        SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(reader, environment, properties);
+        如果忽略了环境参数，那么默认环境将会被加载
+     3. 默认的环境 ID（比如:default="development"）。
+     4. 每个 environment 元素定义的环境 ID（比如:id="development"）。
+     5. 每个环境须配置transactionManager 和 dataSource。
+
+
+     事物管理器：
+     1. 在 MyBatis 中有两种类型的事务管理器（也就是 type=”[JDBC|MANAGED]”）
+        1）JDBC – 这个配置就是直接使用了 JDBC 的提交和回滚设置，它依赖于从数据源得到的连接来管理事务作用域。
+        2）MANAGED – 这个配置几乎没做什么。它从来不提交或回滚一个连接，而是让容器来管理事务的整个生命周期
+     2. 如果你正在使用 Spring + MyBatis，则没有必要配置事务管理器， 因为 Spring 模块会使用自带的管理器来覆盖前面的配置
+
+
+    数据源（dataSource）：
+    dataSource 元素使用标准的 JDBC 数据源接口来配置 JDBC 连接对象的资源。
+    有三种内建的数据源类型（也就是 type=”[UNPOOLED|POOLED|JNDI]”）：
+
+    1. UNPOOLED：这个数据源的实现只是每次被请求时打开和关闭连接
+    2. POOLED：这种数据源的实现利用“池”的概念将 JDBC 连接对象组织起来，避免了创建新的连接实例时所必需的初始化和认证时间。
+       这是一种使得并发 Web 应用快速响应请求的流行处理方式。
+       具体属性配置参见：http://www.mybatis.org/mybatis-3/zh/configuration.html#environments
+    3. JNDI：这个数据源的实现是为了能在如 EJB 或应用服务器这类容器中使用
+
+    -->
     <environments default="development">
         <environment id="development">
             <transactionManager type="JDBC"/>
@@ -99,6 +146,50 @@
             </dataSource>
         </environment>
     </environments>
+
+    <!--
+    databaseIdProvider 数据库厂商标识：
+    1. MyBatis 可以根据不同的数据库厂商执行不同的语句，这种多厂商的支持是基于映射语句中的 databaseId 属性
+    2. 如果同时找到带有 databaseId 和不带 databaseId 的相同语句，则后者会被舍弃。
+    例如：
+    <databaseIdProvider type="DB_VENDOR">
+      <property name="SQL Server" value="sqlserver"/>
+      <property name="DB2" value="db2"/>
+      <property name="Oracle" value="oracle" />
+    </databaseIdProvider>
+
+    -->
+
+    <!--
+    映射器（mappers）：
+    告诉 MyBatis 到哪里去找映射文件。
+    1）： 使用相对于类路径的资源引用
+    <mappers>
+      <mapper resource="org/mybatis/builder/AuthorMapper.xml"/>
+      <mapper resource="org/mybatis/builder/BlogMapper.xml"/>
+      <mapper resource="org/mybatis/builder/PostMapper.xml"/>
+    </mappers>
+
+    2）： 使用完全限定资源定位符（URL）
+    <mappers>
+      <mapper url="file:///var/mappers/AuthorMapper.xml"/>
+      <mapper url="file:///var/mappers/BlogMapper.xml"/>
+      <mapper url="file:///var/mappers/PostMapper.xml"/>
+    </mappers>
+
+    3）：使用映射器接口实现类的完全限定类名
+    <mappers>
+      <mapper class="org.mybatis.builder.AuthorMapper"/>
+      <mapper class="org.mybatis.builder.BlogMapper"/>
+      <mapper class="org.mybatis.builder.PostMapper"/>
+    </mappers>
+
+    4) :将包内的映射器接口实现全部注册为映射器
+    <mappers>
+      <package name="org.mybatis.builder"/>
+    </mappers>
+
+    -->
     <mappers>
         <mapper resource="EmployeeMapper.xml"/>
     </mappers>
