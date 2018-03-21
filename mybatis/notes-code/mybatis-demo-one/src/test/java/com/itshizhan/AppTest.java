@@ -59,5 +59,25 @@ public class AppTest {
     }
   }
 
+  @Test
+  public void mybatisTest3() throws IOException {
+
+    try {
+      //使用接口 getMapper
+      EmployeeMapper employeeMapper = session.getMapper(EmployeeMapper.class);
+      Employee emp = new Employee();
+      emp.setLastName("jack");
+      emp.setGender("1");
+      emp.setEmail("jack@163.com");
+
+      int count = employeeMapper.insertEmployee(emp);
+      session.commit();//这里一定要提交，不然数据进不去数据库中
+      System.out.println(count);
+
+    } finally {
+      session.close();
+    }
+  }
+
 
 }

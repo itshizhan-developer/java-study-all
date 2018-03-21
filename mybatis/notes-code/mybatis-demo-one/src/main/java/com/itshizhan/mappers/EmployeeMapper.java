@@ -8,5 +8,6 @@ import com.itshizhan.beans.Employee;
 public interface EmployeeMapper {
 
    Employee selectEmpoyeeById(Integer id);
+   int insertEmployee(Employee employee);
 
 }
