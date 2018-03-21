@@ -165,23 +165,23 @@
     告诉 MyBatis 到哪里去找映射文件。
     1）： 使用相对于类路径的资源引用
     <mappers>
-      <mapper resource="org/mybatis/builder/AuthorMapper.xml"/>
-      <mapper resource="org/mybatis/builder/BlogMapper.xml"/>
-      <mapper resource="org/mybatis/builder/PostMapper.xml"/>
+   mapperspper resource="org/mybatis/builder/AuthorMapper.xml"/>
+   mapperspper resource="org/mybatis/builder/BlogMapper.xml"/>
+   mapperspper resource="org/mybatis/builder/PostMapper.xml"/>
     </mappers>
 
     2）： 使用完全限定资源定位符（URL）
     <mappers>
-      <mapper url="file:///var/mappers/AuthorMapper.xml"/>
-      <mapper url="file:///var/mappers/BlogMapper.xml"/>
-      <mapper url="file:///var/mappers/PostMapper.xml"/>
+   mapperspper url="file:///var/mappers/AuthorMapper.xml"/>
+   mapperspper url="file:///var/mappers/BlogMapper.xml"/>
+   mapperspper url="file:///var/mappers/PostMapper.xml"/>
     </mappers>
 
     3）：使用映射器接口实现类的完全限定类名
     <mappers>
-      <mapper class="org.mybatis.builder.AuthorMapper"/>
-      <mapper class="org.mybatis.builder.BlogMapper"/>
-      <mapper class="org.mybatis.builder.PostMapper"/>
+   mapperspper class="org.mybatis.builder.AuthorMapper"/>
+   mapperspper class="org.mybatis.builder.BlogMapper"/>
+   mapperspper class="org.mybatis.builder.PostMapper"/>
     </mappers>
 
     4) :将包内的映射器接口实现全部注册为映射器
@@ -190,8 +190,9 @@
     </mappers>
 
     -->
+
     <mappers>
-        <mapper resource="EmployeeMapper.xml"/>
+        <mapper class="com.itshizhan.mappers.EmployeeMapper"/>
     </mappers>
 
 </configuration>
