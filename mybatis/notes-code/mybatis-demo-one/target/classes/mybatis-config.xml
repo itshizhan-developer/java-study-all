@@ -161,38 +161,38 @@
     -->
 
     <!--
-    映射器（mappers）：
+    daopers）：
     告诉 MyBatis 到哪里去找映射文件。
     1）： 使用相对于类路径的资源引用
-    <mappers>
+ daopers>
    mapperspper resource="org/mybatis/builder/AuthorMapper.xml"/>
    mapperspper resource="org/mybatis/builder/BlogMapper.xml"/>
    mapperspper resource="org/mybatis/builder/PostMapper.xml"/>
-    </mappers>
+  daopers>
 
     2）： 使用完全限定资源定位符（URL）
-    <mappers>
-   mapperspper url="file:///var/mappers/AuthorMapper.xml"/>
-   mapperspper url="file:///var/mappers/BlogMapper.xml"/>
-   mapperspper url="file:///var/mappers/PostMapper.xml"/>
-    </mappers>
+ daopers>
+   mapperspper url="file:///daopers/AuthorMapper.xml"/>
+   mapperspper url="file:///daopers/BlogMapper.xml"/>
+   mapperspper url="file:///daopers/PostMapper.xml"/>
+  daopers>
 
     3）：使用映射器接口实现类的完全限定类名
-    <mappers>
+ daopers>
    mapperspper class="org.mybatis.builder.AuthorMapper"/>
    mapperspper class="org.mybatis.builder.BlogMapper"/>
    mapperspper class="org.mybatis.builder.PostMapper"/>
-    </mappers>
+  daopers>
 
     4) :将包内的映射器接口实现全部注册为映射器
-    <mappers>
+ daopers>
       <package name="org.mybatis.builder"/>
-    </mappers>
+  daopers>
 
     -->
 
     <mappers>
-        <mapper class="com.itshizhan.mappers.EmployeeMapper"/>
+        <mapper class="com.itshizhan.dao.EmployeeMapper"/>
     </mappers>
 
 </configuration>

@@ -2,7 +2,7 @@ package com.itshizhan;
 
 
 import com.itshizhan.beans.Employee;
-import com.itshizhan.mappers.EmployeeMapper;
+import com.itshizhan.dao.EmployeeMapper;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -12,6 +12,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 /**
  * Unit test for simple App.
@@ -77,7 +78,41 @@ public class AppTest {
     } finally {
       session.close();
     }
+
   }
+
+  @Test
+  public void mybatisTest4() throws IOException {
+
+    try {
+      //使用接口 getMapper
+      EmployeeMapper employeeMapper = session.getMapper(EmployeeMapper.class);
+
+      List emps = employeeMapper.selectEmployeeLikeName("1","%m%");
+
+      System.out.println(emps);
+
+    } finally {
+      session.close();
+    }
+  }
+
+  @Test
+  public void mybatisTest5() throws IOException {
+
+    try {
+      //使用接口 getMapper
+      EmployeeMapper employeeMapper = session.getMapper(EmployeeMapper.class);
+
+      List emps = employeeMapper.selectEmployeeLikeNamePlus("1");
+
+      System.out.println(emps);
+
+    } finally {
+      session.close();
+    }
+  }
+
 
 
 }
