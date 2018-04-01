@@ -43,7 +43,7 @@
 
     <!--
     typeAliases：类型别名
-     1. 别名，即为java类型设置一个短的名字，只和xml配置有关，可以减少类完全限定名的冗余。
+     1. 别名，即为java类型设置一个短的名字，只和xml配置有关，可以减少类完全限定名的冗余。 别名不区分大小写。
      2. 例如，配置属性：<typeAlias type="com.itshizhan.beans.Employee" alias="employee"></typeAlias>，
         则xml中可以使用Employee或employee 代替全类名，
         如： <select id="selectEmployee" resultType="employee"> sql 语句</select>
@@ -164,35 +164,38 @@
     daopers）：
     告诉 MyBatis 到哪里去找映射文件。
     1）： 使用相对于类路径的资源引用
- daopers>
-   mapperspper resource="org/mybatis/builder/AuthorMapper.xml"/>
-   mapperspper resource="org/mybatis/builder/BlogMapper.xml"/>
-   mapperspper resource="org/mybatis/builder/PostMapper.xml"/>
-  daopers>
+    <mappers>
+       <mapper resource="org/mybatis/builder/AuthorMapper.xml"/>
+       <mapper resource="org/mybatis/builder/BlogMapper.xml"/>
+       <mapper resource="org/mybatis/builder/PostMapper.xml"/>
+    </mappers>
 
     2）： 使用完全限定资源定位符（URL）
- daopers>
-   mapperspper url="file:///daopers/AuthorMapper.xml"/>
-   mapperspper url="file:///daopers/BlogMapper.xml"/>
-   mapperspper url="file:///daopers/PostMapper.xml"/>
-  daopers>
+    <mappers>
+       <mapper url="file:///daopers/AuthorMapper.xml"/>
+       <mapper url="file:///daopers/BlogMapper.xml"/>
+       <mapper url="file:///daopers/PostMapper.xml"/>
+     </mappers>
 
     3）：使用映射器接口实现类的完全限定类名
- daopers>
-   mapperspper class="org.mybatis.builder.AuthorMapper"/>
-   mapperspper class="org.mybatis.builder.BlogMapper"/>
-   mapperspper class="org.mybatis.builder.PostMapper"/>
-  daopers>
+     <mappers>
+       <mapper class="org.mybatis.builder.AuthorMapper"/>
+       <mapper class="org.mybatis.builder.BlogMapper"/>
+       <mapper class="org.mybatis.builder.PostMapper"/>
+      </mappers>
 
     4) :将包内的映射器接口实现全部注册为映射器
- daopers>
-      <package name="org.mybatis.builder"/>
-  daopers>
+      <mappers>>
+          <package name="org.mybatis.builder"/>
+     </mappers>
 
     -->
 
     <mappers>
-        <mapper class="com.itshizhan.dao.EmployeeMapper"/>
+        <!--<mapper class="com.itshizhan.dao.EmployeeMapper"/>-->
+
+        <!--推荐此方法，针对多接口-->
+        <package name="com.itshizhan.dao"/>
     </mappers>
 
 </configuration>
