@@ -76,7 +76,23 @@ public interface EmployeeMapper {
 }
 ````
 ## myBatis 生命周期
- 
+
+#### SqlSessionFactoryBuilder
+
+利用SqlSessionFactoryBuilder 可以构建多个 SqlSessionFactory ，其作用就是一个构建器，一旦构建完 SqlSessionFactory，其作用就已结束，应将其回收。**因此，其生命周期只存在于方法的局部**，其作用就是生成 SqlSessionFactory 对象。
+
+#### SqlSessionFactory
+
+SqlSessionFactory 的作业是创建 SqlSession，而 SqlSession 相对于一个回话，即JDBC中的 Connection 对象。应用程序每次访问数据库，都需要通过 SqlSessionFactory 创建 SqlSession ，** 因此 SqlSessionFactory 的声明周期存在于整个应用**。 为了避免每次创建 SqlSession 对象，都会创建一个新的连接，应采用**单例的方式** ， 以避免过多的 Connection 消耗。
+
+#### SqlSession
+
+之前说过， SqlSession 是一个会话，相对于一个 Connection 对象。**其生命周期应该是每次请求数据库处理事务的过程中**。 **SqlSession 是一个线程不安全的对象**。 同时，应该每次请求处理完毕，及时进行关闭。 	
+
+#### Mapper
+
+Mapper 是一个接口，其作用是发出Sql，还回需要的结果，或修改数据库数据，**其生命周期应该在一个SqlSession 事务方法之内**，属于方法级别的东西。
+
 
 # 二、myBatis配置
 
