@@ -98,8 +98,67 @@ SqlSessionFactory 的作用是创建 SqlSession，而 SqlSession 相对于一个
 
 Mapper 是一个接口，其作用是发出Sql，还回需要的结果，或修改数据库数据，**其生命周期应该在一个SqlSession 事务方法之内**，属于方法级别的东西。
 
-## 实战： 通过单例构建SqlSession 对象
+## 实战： 通过单例构建SqlSession 对象: SqlSessionFactoryUtil.java
 ```java
+/**
+ * Created by itshizhan2016 on 2018/4/5.
+ */
+package com.itshizhan.utils;
+
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+public class SqlSessionFactoryUtil {
+  //SqlSessionFactory 对象
+  private static SqlSessionFactory sqlSessionFactory = null;
+
+  //类线程锁
+  private static final Class CLASS_LOCK = SqlSessionFactoryUtil.class;
+
+  //私有化构造函数
+  private  SqlSessionFactoryUtil(){}
+
+  //构建SQLSessionFactory
+  public static SqlSessionFactory initSqlSessionFactory(){
+
+    //加载 mybatis 配置文件
+    String resource = "mybatis-config.xml";
+    InputStream inputStream = null;
+    try {
+      inputStream = Resources.getResourceAsStream(resource);
+    } catch (IOException e) {
+      e.printStackTrace();
+      Logger.getLogger(SqlSessionFactoryUtil.class.getName()).log(Level.SEVERE,null,ex);
+    }
+
+    synchronized (CLASS_LOCK){
+      if(sqlSessionFactory == null){
+        //构建sqlSession的工厂
+        sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+      }
+    }
+
+    return sqlSessionFactory;
+
+  }
+
+  //打开 SqlSession
+  public static SqlSession openSqlSession(){
+    if(sqlSessionFactory == null){
+      initSqlSessionFactory();
+    }
+    return sqlSessionFactory.openSession();
+  }
+
+}
+
 ```
 
 # 二、myBatis配置

@@ -3,6 +3,7 @@ package com.itshizhan;
 
 import com.itshizhan.beans.Employee;
 import com.itshizhan.dao.EmployeeMapper;
+import com.itshizhan.utils.SqlSessionFactoryUtil;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -19,18 +20,22 @@ import java.util.List;
  */
 public class AppTest {
 
-  private SqlSession session;
+  private SqlSession sqlSession;
 
   @Before
   public void beforeLoadXML() throws IOException {
+    /*
     //加载 mybatis 配置文件
     String resource = "mybatis-config.xml";
     InputStream inputStream = Resources.getResourceAsStream(resource);
     //构建sqlSession的工厂
     SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 
-    //根据 sqlSessionFactory 产生 session
-    session = sqlSessionFactory.openSession();
+    //根据 sqlSessionFactory 产生 sqlSession
+    sqlSession = sqlSessionFactory.openSession();
+    */
+    sqlSession = SqlSessionFactoryUtil.openSqlSession();
+
   }
 
 
@@ -39,10 +44,10 @@ public class AppTest {
 
     try {
       //通过 SqlSession 实例来直接执行已映射的 SQL 语句
-      Employee employee = (Employee) session.selectOne("selectEmployee", 2);
+      Employee employee = (Employee) sqlSession.selectOne("selectEmployee", 2);
       System.out.println(employee);
     } finally {
-      session.close();
+      sqlSession.close();
     }
   }
 
@@ -51,12 +56,12 @@ public class AppTest {
 
     try {
       //使用接口 getMapper
-      EmployeeMapper employeeMapper = session.getMapper(EmployeeMapper.class);
+      EmployeeMapper employeeMapper = sqlSession.getMapper(EmployeeMapper.class);
       Employee employee = employeeMapper.selectEmpoyeeById(2);
 
       System.out.println(employee.getEmail());
     } finally {
-      session.close();
+      sqlSession.close();
     }
   }
 
@@ -65,18 +70,18 @@ public class AppTest {
 
     try {
       //使用接口 getMapper
-      EmployeeMapper employeeMapper = session.getMapper(EmployeeMapper.class);
+      EmployeeMapper employeeMapper = sqlSession.getMapper(EmployeeMapper.class);
       Employee emp = new Employee();
-      emp.setLastName("jack");
+      emp.setLastName("jack1");
       emp.setGender("1");
-      emp.setEmail("jack@163.com");
+      emp.setEmail("jack1@163.com");
 
       int count = employeeMapper.insertEmployee(emp);
-      session.commit();//这里一定要提交，不然数据进不去数据库中
+      sqlSession.commit();//这里一定要提交，不然数据进不去数据库中
       System.out.println(count);
 
     } finally {
-      session.close();
+      sqlSession.close();
     }
 
   }
@@ -86,14 +91,14 @@ public class AppTest {
 
     try {
       //使用接口 getMapper
-      EmployeeMapper employeeMapper = session.getMapper(EmployeeMapper.class);
+      EmployeeMapper employeeMapper = sqlSession.getMapper(EmployeeMapper.class);
 
       List emps = employeeMapper.selectEmployeeLikeName("1","%m%");
 
       System.out.println(emps);
 
     } finally {
-      session.close();
+      sqlSession.close();
     }
   }
 
@@ -102,14 +107,14 @@ public class AppTest {
 
     try {
       //使用接口 getMapper
-      EmployeeMapper employeeMapper = session.getMapper(EmployeeMapper.class);
+      EmployeeMapper employeeMapper = sqlSession.getMapper(EmployeeMapper.class);
 
       List emps = employeeMapper.selectEmployeeLikeNamePlus("1");
 
       System.out.println(emps);
 
     } finally {
-      session.close();
+      sqlSession.close();
     }
   }
 
