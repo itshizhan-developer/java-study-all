@@ -135,7 +135,7 @@ public class SqlSessionFactoryUtil {
       inputStream = Resources.getResourceAsStream(resource);
     } catch (IOException e) {
       e.printStackTrace();
-      Logger.getLogger(SqlSessionFactoryUtil.class.getName()).log(Level.SEVERE,null,ex);
+      Logger.getLogger(SqlSessionFactoryUtil.class.getName()).log(Level.SEVERE,null,e);
     }
 
     synchronized (CLASS_LOCK){
