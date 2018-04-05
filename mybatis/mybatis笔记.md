@@ -93,6 +93,9 @@ SqlSessionFactory 的作业是创建 SqlSession，而 SqlSession 相对于一个
 
 Mapper 是一个接口，其作用是发出Sql，还回需要的结果，或修改数据库数据，**其生命周期应该在一个SqlSession 事务方法之内**，属于方法级别的东西。
 
+## 实战： 通过单例构建SqlSession 对象
+```java
+```
 
 # 二、myBatis配置
 
