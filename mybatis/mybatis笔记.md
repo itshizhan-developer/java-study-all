@@ -8,9 +8,14 @@
 
 ### SqlSessionFactory
 
+每个mybatis应用程序都是以SqlSessionFactory的实例为中心的。SqlSessionFactory的实例可以通过SqlSessionFactoryBuilder（构造器） 获得。 SqlSessionFactory 是一个工厂接口，而不是实现类。
 
 ### SqlSession
 
+SqlSession 是一个接口类。其实现类有两个，分别是：DefaultSqlSession 和 SqlSessionManager 。
+SqlSession 的作用主要有：
+1）获取映射器mapper。让映射器通过命名空间和方法找到对应的sql并执行。
+2）执行通过命名信息（如update，insert，select，delete）去执行sql。 这是iBatis遗留的使用方式。
 
 
 ### 映射器
@@ -83,7 +88,7 @@ public interface EmployeeMapper {
 
 #### SqlSessionFactory
 
-SqlSessionFactory 的作业是创建 SqlSession，而 SqlSession 相对于一个回话，即JDBC中的 Connection 对象。应用程序每次访问数据库，都需要通过 SqlSessionFactory 创建 SqlSession ，** 因此 SqlSessionFactory 的声明周期存在于整个应用**。 为了避免每次创建 SqlSession 对象，都会创建一个新的连接，应采用**单例的方式** ， 以避免过多的 Connection 消耗。
+SqlSessionFactory 的作用是创建 SqlSession，而 SqlSession 相对于一个回话，即JDBC中的 Connection 对象。应用程序每次访问数据库，都需要通过 SqlSessionFactory 创建 SqlSession ，** 因此 SqlSessionFactory 的声明周期存在于整个应用**。 为了避免每次创建 SqlSession 对象，都会创建一个新的连接，应采用**单例的方式** ， 以避免过多的 Connection 消耗。
 
 #### SqlSession
 
