@@ -163,6 +163,38 @@ public class SqlSessionFactoryUtil {
 
 # 二、myBatis配置
 
+### myBatis 全局配置文件层次结构：注意顺序不能错
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration> 
+  <properties/> 
+  <setting/>
+  <typeAliases/>
+  <typeHandlers/>
+  <objectFactory/>
+  <plugins/>
+  <environments>
+    <environment>
+      <transactionManager/>
+      <dataSource/>
+    </environment>
+  </environments>
+  <databaseIdProvider/>
+  <mappers/>
+</configuration>
+```
+依次是：属性，设置，类型别名，类型处理器，对象工厂，插件，配置环境（事务管理器，数据源），数据库厂商标识，映射器
+
+##  属性properties：
+mybatis 针对属性，提供了3中配置方式：
+- property 子元素
+- properties 配置文件
+- 程序参数传递
+
+
+
+
+
 # 三、myBatis映射器
 
 # 四、动态Sql
