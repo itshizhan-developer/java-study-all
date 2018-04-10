@@ -39,25 +39,14 @@ public class AppTest {
   }
 
 
+
   @Test
   public void mybatisTest1() throws IOException {
 
     try {
-      //通过 SqlSession 实例来直接执行已映射的 SQL 语句
-      Employee employee = (Employee) sqlSession.selectOne("selectEmployee", 2);
-      System.out.println(employee);
-    } finally {
-      sqlSession.close();
-    }
-  }
-
-  @Test
-  public void mybatisTest2() throws IOException {
-
-    try {
       //使用接口 getMapper
       EmployeeMapper employeeMapper = sqlSession.getMapper(EmployeeMapper.class);
-      Employee employee = employeeMapper.selectEmpoyeeById(2);
+      Employee employee = employeeMapper.selectEmpoyeeById(10);
 
       System.out.println(employee.getEmail());
     } finally {
@@ -65,37 +54,59 @@ public class AppTest {
     }
   }
 
+
+  @Test
+  public void mybatisTest2() throws IOException {
+
+    try {
+      //使用接口 getMapper
+      EmployeeMapper employeeMapper = sqlSession.getMapper(EmployeeMapper.class);
+
+      Employee employee = new Employee();
+      employee.setLastName("John");
+      employee.setGender("1");
+      employee.setEmail("John@163.com");
+
+      employeeMapper.insertEmployee(employee);
+      sqlSession.commit(); // 务必，否则不会执行
+
+    } finally {
+      sqlSession.close();
+    }
+  }
+
+//  updateEmployee
+
   @Test
   public void mybatisTest3() throws IOException {
 
     try {
       //使用接口 getMapper
       EmployeeMapper employeeMapper = sqlSession.getMapper(EmployeeMapper.class);
-      Employee emp = new Employee();
-      emp.setLastName("jack1");
-      emp.setGender("1");
-      emp.setEmail("jack1@163.com");
 
-      int count = employeeMapper.insertEmployee(emp);
-      sqlSession.commit();//这里一定要提交，不然数据进不去数据库中
-      System.out.println(count);
+      Employee employee = new Employee();
+      employee.setId(10);
+      employee.setLastName("Jack100");
+      employee.setGender("1");
+      employee.setEmail("Jack100@163.com");
+
+      employeeMapper.updateEmployee(employee);
+      sqlSession.commit(); // 务必，否则不会执行
 
     } finally {
       sqlSession.close();
     }
-
   }
 
+  //deleteEmployById
   @Test
   public void mybatisTest4() throws IOException {
 
     try {
       //使用接口 getMapper
       EmployeeMapper employeeMapper = sqlSession.getMapper(EmployeeMapper.class);
-
-      List emps = employeeMapper.selectEmployeeLikeName("1","%m%");
-
-      System.out.println(emps);
+      employeeMapper.deleteEmployById(8);
+      sqlSession.commit(); // 务必，否则不会执行
 
     } finally {
       sqlSession.close();
@@ -109,14 +120,44 @@ public class AppTest {
       //使用接口 getMapper
       EmployeeMapper employeeMapper = sqlSession.getMapper(EmployeeMapper.class);
 
-      List emps = employeeMapper.selectEmployeeLikeNamePlus("1");
+      Employee employee = new Employee();
+      employee.setLastName("John100");
+      employee.setGender("1");
+      employee.setEmail("John100@163.com");
 
-      System.out.println(emps);
+      employeeMapper.insertEmployeeGetId(employee);
+      sqlSession.commit(); // 务必，否则不会执行
+      System.out.println(employee.getId());
 
     } finally {
       sqlSession.close();
     }
   }
+
+  // insertEmployeeGetIdTwo
+
+  @Test
+  public void mybatisTest6() throws IOException {
+
+    try {
+      //使用接口 getMapper
+      EmployeeMapper employeeMapper = sqlSession.getMapper(EmployeeMapper.class);
+
+      Employee employee = new Employee();
+      employee.setLastName("John1000");
+      employee.setGender("1");
+      employee.setEmail("John1000@163.com");
+
+      employeeMapper.insertEmployeeGetIdTwo(employee);
+      sqlSession.commit(); // 务必，否则不会执行
+      System.out.println(employee.getId());
+
+    } finally {
+      sqlSession.close();
+    }
+  }
+
+
 
 
 

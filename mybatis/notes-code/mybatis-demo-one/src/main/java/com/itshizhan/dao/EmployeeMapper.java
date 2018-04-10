@@ -9,12 +9,21 @@ import java.util.List;
 
 public interface EmployeeMapper {
 
+   // 查询
    Employee selectEmpoyeeById(Integer id);
 
-   int insertEmployee(Employee employee);
+   // 添加 ，也可以 public void 不返还
+   void insertEmployee(Employee employee);
 
-   List<Employee> selectEmployeeLikeName(String gender, String lastName);
+   // 更新
+   void updateEmployee(Employee employee);
 
-   List<Employee> selectEmployeeLikeNamePlus(String gender);
+   //删除
+   void deleteEmployById(Integer id);
+
+   // 增加时 返回自增的ID：方法一
+   void   insertEmployeeGetId(Employee employee);
+   // 增加时 返回自增的ID：方法二
+   void insertEmployeeGetIdTwo(Employee employee);
 
 }
