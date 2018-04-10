@@ -156,9 +156,7 @@ public class AppTest {
       sqlSession.close();
     }
   }
-
-
-
+  
 
 
 }
