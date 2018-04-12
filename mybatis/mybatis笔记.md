@@ -191,7 +191,60 @@ mybatis 针对属性，提供了3中配置方式：
 - properties 配置文件
 - 程序参数传递
 
+1）property 子元素方式：
 
+```xml
+<properties>
+  <property name="driver" value="com.mysql.jdbc.Driver"/>
+  <property name="url" value="jdbc:mysql://localhost:3306/mybatis_demo"/>
+  <property name="username" value="root"/>
+  <property name="password" value="root123"/>
+</properties>
+```
+通过property 子元素配置好属性后，就可以在上下文中使用以及配置好的属性，例如：
+
+```xml
+<environments default="development">
+    <environment id="development">
+        <transactionManager type="JDBC"/>
+        <dataSource type="POOLED">
+          <property name="driver" value="${driver}"/>
+          <property name="url" value="${url}"/>
+          <property name="username" value="${username}"/>
+          <property name="password" value="${password}"/>
+        </dataSource>
+    </environment>
+</environments>
+```
+
+2) 使用配置文件配置属性，例如：db.properties
+
+```js
+#数据库配置文件
+driver = com.mysql.jdbc.Driver
+url = jdbc:mysql://localhost:3306/mybatis_demo
+username = root
+password = root123
+```
+
+在mybatis 全局配置文件中引入properties.db
+
+```xml
+<properties resource="db.properties"/>
+```
+
+3) 通过程序参数传递属性
+
+```java
+Properties properties = new Properties();
+properties.load(inputStream); // inputStream为读取的属性配置文件流
+properties.setProperty("username");
+// 省略部分代码
+SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(cfgReader,properties)/
+```
+仅供了解，具体可以参见如果使用代码的方式创建SqlSessionFactory对象。
+
+#### 各种属性配置方式的优先级：
 
 
 
