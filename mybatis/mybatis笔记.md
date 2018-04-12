@@ -245,6 +245,27 @@ SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(cfgRe
 仅供了解，具体可以参见如果使用代码的方式创建SqlSessionFactory对象。
 
 #### 各种属性配置方式的优先级：
+- 在properties 元素体内指定的属性首先读取（`优先级最低`）
+- 根据properties 元素的resource 属性读取类路径下的属性文件，或者根据url属性指定的路径读取属性文件，并覆盖已经读取的同名属性。
+- 读取方法参数传递的属性，并覆盖已经读取的同名属性（`优先级最高`）
+
+## 设置 setting：
+
+settings 是myBatis中非常重要的调整设置，可以改变myBatis运行时的行为，如缓存，开启驼峰命名规则等
+
+常用的设置有：
+  - useGeneratedKeys：自动生成主键
+  - defaultStatementTimeout：设置超时时间，决定驱动等待数据库响应的秒数
+  - mapUnderscoreToCamelCase：开启驼峰，即从经典数据库列名A_Column 到经典java数项目aColumn的映射
+
+例如：
+
+```xml
+  <settings>
+    <setting name="mapUnderscoreToCamelCase" value="true"/>
+  </settings>
+```
+
 
 
 
