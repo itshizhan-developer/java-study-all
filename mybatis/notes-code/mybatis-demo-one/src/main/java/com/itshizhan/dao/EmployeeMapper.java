@@ -4,8 +4,10 @@
 package com.itshizhan.dao;
 
 import com.itshizhan.beans.Employee;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 public interface EmployeeMapper {
 
@@ -28,5 +30,12 @@ public interface EmployeeMapper {
 
    // 多个参数：根据部门id和性别查询员工
    List<Employee> selectEmpoyeeByDidAndGender(Integer did,String gender);
+
+   // 多个参数：根据部门id和性别查询员工
+   List<Employee> selectEmpoyeeByDidAndGenderPlus(@Param("did1") Integer did, @Param("gender") String gender);
+
+   // 多个参数封装为map
+   List<Employee> selectEmpoyeeByMap(Map<String,Object> map);
+
 
 }

@@ -1,3 +1,6 @@
+提示： 
+完整的代码及demo地址：https://github.com/itshizhan/java_study_notes/tree/master/mybatis/notes-code/
+
 # 一、myBatis 的基本构成
 
 ## myBatis 核心组件
@@ -345,11 +348,75 @@ sql语句：
 </select>
 ```
 
-#### 处理方式之二：
+#### 处理方式之二：命名参数
 
-使用命名参数：
+由于，params1 ，params2不够语义化，可以使用命名参数，例如：
 
+接口：
+```java
+// 多个参数：根据部门id和性别查询员工
+List<Employee> selectEmpoyeeByDidAndGenderPlus(@Param("did") Integer did, @Param("gender") String gender);
+```
 
+sql语句:
+
+```xml
+<!-- 
+通过@param("key")明确指定封装map中的key，就可以通过#{key}取出参数值了
+ -->
+<select id="selectEmpoyeeByDidAndGenderPlus"  resultType="employee">
+    SELECT * FROM t_employee
+    WHERE
+    did = #{did}
+    AND
+    gender = #{gender}
+</select>
+```
+
+#### 处理方式之三：直接使用map传参（底层实现）
+
+接口：
+```java
+  // 多个参数封装为map
+  List<Employee> selectEmpoyeeByMap(Map<String,Object> map);
+```
+
+sql语句：
+```xml
+<!-- 多个参数：封装为map
+通过map.put(key,value) 的key 取出 #{key} 参数
+-->
+
+<select id="selectEmpoyeeByMap"  resultType="employee">
+    SELECT * FROM t_employee
+    WHERE
+    did = #{did}
+    AND
+    gender = #{gender}
+</select>
+```
+
+测试代码：
+```java
+@Test
+public void mybatisTestByMap() throws IOException {
+
+  try {
+    //使用接口 getMapper
+    EmployeeMapper employeeMapper = sqlSession.getMapper(EmployeeMapper.class);
+
+    Map map =new HashMap<>();
+    map.put("did",108);
+    map.put("gender","1");
+
+    List<Employee> employeeList = employeeMapper.selectEmpoyeeByMap(map);
+    System.out.println(employeeList);
+
+  } finally {
+    sqlSession.close();
+  }
+}
+```
 
 
 # 四、动态Sql

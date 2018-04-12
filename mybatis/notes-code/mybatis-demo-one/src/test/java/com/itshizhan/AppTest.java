@@ -13,7 +13,9 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Unit test for simple App.
@@ -166,11 +168,36 @@ public class AppTest {
       //使用接口 getMapper
       EmployeeMapper employeeMapper = sqlSession.getMapper(EmployeeMapper.class);
 
-      List<Employee> employeeList = employeeMapper.selectEmpoyeeByDidAndGender(101,"1");
+      List<Employee> employeeList = employeeMapper.selectEmpoyeeByDidAndGenderPlus(104,"2");
       System.out.println(employeeList);
 
     } finally {
       sqlSession.close();
     }
   }
+
+
+
+  @Test
+  public void mybatisTestByMap() throws IOException {
+
+    try {
+      //使用接口 getMapper
+      EmployeeMapper employeeMapper = sqlSession.getMapper(EmployeeMapper.class);
+
+      Map map =new HashMap<>();
+      map.put("did",108);
+      map.put("gender","1");
+
+      List<Employee> employeeList = employeeMapper.selectEmpoyeeByMap(map);
+      System.out.println(employeeList);
+
+    } finally {
+      sqlSession.close();
+    }
+  }
+
+
+
+
 }

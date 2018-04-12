@@ -51,4 +51,22 @@
         gender = #{arg1}
     </select>
 
+    <!-- 多个参数：根据部门id和性别Plus-->
+    <select id="selectEmpoyeeByDidAndGenderPlus"  resultType="employee">
+        SELECT * FROM t_employee
+        WHERE
+        did = #{did}
+        AND
+        gender = #{gender}
+    </select>
+
+    <!-- 多个参数：封装为map-->
+    <select id="selectEmpoyeeByMap"  resultType="employee">
+        SELECT * FROM t_employee
+        WHERE
+        did = #{did}
+        AND
+        gender = #{gender}
+    </select>
+
 </mapper>

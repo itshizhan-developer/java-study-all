@@ -10,6 +10,7 @@ public class Employee {
   private String lastName;
   private String gender;
   private String email;
+  private Integer did;
 
   public Integer getId() {
     return id;
@@ -17,6 +18,14 @@ public class Employee {
 
   public void setId(Integer id) {
     this.id = id;
+  }
+
+  public Integer getDid() {
+    return did;
+  }
+
+  public void setDid(Integer did) {
+    this.did = did;
   }
 
   public String getLastName() {
@@ -50,6 +59,7 @@ public class Employee {
             ", lastName='" + lastName + '\'' +
             ", gender='" + gender + '\'' +
             ", email='" + email + '\'' +
+            ", did=" + did +
             '}';
   }
 }
