@@ -48,7 +48,7 @@ public class AppTest {
       EmployeeMapper employeeMapper = sqlSession.getMapper(EmployeeMapper.class);
       Employee employee = employeeMapper.selectEmpoyeeById(10);
 
-      System.out.println(employee.getEmail());
+      System.out.println(employee);
     } finally {
       sqlSession.close();
     }
@@ -157,6 +157,20 @@ public class AppTest {
     }
   }
 
+  //  多个参数的处理之1
 
+  @Test
+  public void mybatisTest7() throws IOException {
 
+    try {
+      //使用接口 getMapper
+      EmployeeMapper employeeMapper = sqlSession.getMapper(EmployeeMapper.class);
+
+      List<Employee> employeeList = employeeMapper.selectEmpoyeeByDidAndGender(101,"1");
+      System.out.println(employeeList);
+
+    } finally {
+      sqlSession.close();
+    }
+  }
 }

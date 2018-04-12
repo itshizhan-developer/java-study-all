@@ -271,6 +271,87 @@ settings 是myBatis中非常重要的调整设置，可以改变myBatis运行时
 
 # 三、myBatis映射器
 
+
+## myBatis参数处理
+
+1）单个参数
+对于单个参数mybatis不做特殊处理，只需要用  #{任意参数名} 取出参数值就可以了。例如:
+
+```java
+// 接口
+Employee selectEmpoyeeById(Integer id);
+```
+
+```xml
+<!-- 映射器语句 -->
+<select id="selectEmpoyeeById" parameterType="int"  resultType="employee">
+  SELECT * FROM t_employee 
+  WHERE 
+  id = #{xyz}
+</select>
+```
+
+2）多个参数
+
+接口：
+```java
+  // 多个参数：根据部门id和性别查询员工,可能多个，所有返回list
+  List<Employee> selectEmpoyeeByDidAndGender(Integer did,String gender);
+```
+sql语句：
+
+```xml
+<select id="selectEmpoyeeByDidAndGender"  resultType="employee">
+    SELECT * FROM t_employee
+    WHERE
+    did = #{did}
+    AND
+    gender = #{gender}
+</select>
+```
+结果报错：
+> `Caused by: org.apache.ibatis.binding.BindingException: Parameter 'did' not found. Available parameters are [arg1, arg0, param1, param2]`
+
+即可以使用的参数必须是 [arg1, arg0, param1, param2]
+
+#### 处理方式之一：
+
+使用参数param1，param2，param3，……
+
+```xml
+<!-- 
+  实际上，在myBatis内部，多个参数被封装为一个map，map 的key值为：param1，param2，param3，……
+ -->
+<select id="selectEmpoyeeByDidAndGender"  resultType="employee">
+    SELECT * FROM t_employee
+    WHERE
+    did = #{param1}
+    AND
+    gender = #{param2}
+</select>
+
+<!-- 
+或则使用map索引
+注意： 在mybatis 3.4 之前，索引可以使用 0，1，但是，
+从mybatis 3.4.4 开始，多参数传递必须是  [arg1, arg0, param1, param2]， 不能是 #{0}，#{1} 了
+ -->
+
+<select id="selectEmpoyeeByDidAndGender"  resultType="employee">
+    SELECT * FROM t_employee
+    WHERE
+    did = #{arg0}
+    AND
+    gender = #{arg1}
+</select>
+```
+
+#### 处理方式之二：
+
+使用命名参数：
+
+
+
+
 # 四、动态Sql
 
 # 五、myBatis运行原理

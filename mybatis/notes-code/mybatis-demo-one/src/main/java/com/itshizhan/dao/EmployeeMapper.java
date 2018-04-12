@@ -26,4 +26,7 @@ public interface EmployeeMapper {
    // 增加时 返回自增的ID：方法二
    void insertEmployeeGetIdTwo(Employee employee);
 
+   // 多个参数：根据部门id和性别查询员工
+   List<Employee> selectEmpoyeeByDidAndGender(Integer did,String gender);
+
 }

@@ -7,7 +7,7 @@
 
     <!--Employee selectEmpoyeeById(Integer id);-->
     <select id="selectEmpoyeeById" parameterType="int"  resultType="employee">
-        SELECT * FROM t_employee WHERE id = #{id}
+        SELECT * FROM t_employee WHERE id = #{1}
     </select>
 
     <!--void insertEmployee(Employee employee);-->
@@ -40,5 +40,15 @@
         </selectKey>
         INSERT INTO t_employee (last_name,gender,email) VALUES (#{lastName},#{gender},#{email})
     </insert>
+
+    <!-- 多个参数：根据部门id和性别-->
+
+    <select id="selectEmpoyeeByDidAndGender"  resultType="employee">
+        SELECT * FROM t_employee
+        WHERE
+        did = #{arg0}
+        AND
+        gender = #{arg1}
+    </select>
 
 </mapper>
