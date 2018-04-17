@@ -270,6 +270,54 @@ settings 是myBatis中非常重要的调整设置，可以改变myBatis运行时
 ```
 
 
+## typeAliases 别名：
+
+- 分为：系统定义别名 和 自定义别名。别名不区分大小写。
+- typeAliases的实例是在解析配置文件时生成的，然后长期保存在Congfiguration 对象中。
+
+#### 系统定义别名
+主要是针对数值、字符串、日期和集合等。
+
+例如：
+- _byte  ---> byte 类型的别名
+- _int   ---> int 类型的别名
+- int    ---> Integer 类型的别名
+- byte   ---> Byte 类型的别名
+- data   --->  Date 类型的别名
+- map    ---> Map 类型的别名
+- hashmap ---> HashMap 类型的别名
+- list   ---> List 类型的别名
+- collection ---> Collection 类型的别名
+- arraylist  ---> ArrayList 类型的别名
+
+详细的系统定义别名可以参加官方文档。
+
+对于支持数组类型的只有加[] 即可，例如Date数组别名可以用data[] 代替。
+
+
+#### 自定义别名
+
+1）单个自定义别名的配置
+
+```xml
+<!-- 例如 在全局配置文件中配置后，即可在Mybatis上下文使用 employee 别名 -->
+<typeAliases>
+    <typeAlias alias="employee" type="com.itshizhan.beans.Employee"></typeAlias>
+</typeAliases>
+```
+
+2）自动扫描包自定义别名
+```xml
+<!-- 
+1：配置自动扫描的报名
+2：使用@Alias("employee") 注解自动装载。如果没有使用注解，则使用类名 的首字母小写的名称作为名别。
+ -->
+<typeAliases>
+  <package name="com.itshizhan.beans">
+</typeAliases>
+```
+
+## typeHandler 类型处理器
 
 
 # 三、myBatis映射器

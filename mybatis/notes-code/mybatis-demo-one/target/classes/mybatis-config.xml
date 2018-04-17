@@ -58,7 +58,8 @@
     -->
 
     <typeAliases>
-        <typeAlias type="com.itshizhan.beans.Employee" alias="employee"></typeAlias>
+        <!--<typeAlias type="com.itshizhan.beans.Employee" alias="employee"></typeAlias>-->
+        <package name="com.itshizhan.beans"/>
     </typeAliases>
 
 
