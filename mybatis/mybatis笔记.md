@@ -319,6 +319,32 @@ settings 是myBatis中非常重要的调整设置，可以改变myBatis运行时
 
 ## typeHandler 类型处理器
 
+MyBatis 在预处理语句（PreparedStatement）中设置一个参数时，或者从结果集(ResultSet) 中取出一个值时，都会用注册了的typeHandler 进行处理。
+
+和别名一样，typeHandler也分为 系统定义和用户自定义两种。
+
+typeHandler 常用的配置为Java类型(javaType)、JDBC类型(jdbcType)，typeHandler 的作用就是讲参数从javaType 转化为jdbcType，或从数据库取出结果时，把jdbcType 转化为javaType。
+
+#### 系统定义的typeHandler:
+
+如：StringTypeHandler，IntegerTypeHandler 等，直接使用即可。具体参见官方文档。
+
+#### 自定义typeHandler：
+
+
+
+## ObjectFactory
+
+
+## 插件
+
+## Environments 环境配置
+
+## databaseIdProvider 数据库厂商标识
+
+## 映射器配置
+
+
 
 # 三、myBatis映射器
 
