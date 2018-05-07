@@ -148,12 +148,12 @@ class Dog{
   c.add("c");
 
   // Iterator 中的内容自动提升为Object类型
-
+  // 如果是对象，获取值时需要 强制转换 
   Iterator it = c.iterator();
   while(it.hasNext()){
     System.out.println(it.next());
   }
-  
+
 ```
 
 
