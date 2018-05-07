@@ -158,8 +158,6 @@ class Dog{
 
 
 
-
-
 ### 集合其他方法：
 
 - addAll(c): 集合合并
@@ -168,8 +166,6 @@ class Dog{
 - retainAll(c): 取交集，并赋值给调用者
 
 
-
-# 3.collection 源码分析
 
 # 4. List集合
 
