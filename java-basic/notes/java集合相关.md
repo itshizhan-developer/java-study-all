@@ -12,9 +12,9 @@
 
 
 # 1. 集合分类
-```
+
 <img src="https://github.com/itshizhan/java_study_notes/blob/master/java-basic/notes/images/collections-icon1.png?raw=true"/>
-```
+
 
 实例：
 
