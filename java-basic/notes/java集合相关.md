@@ -15,6 +15,8 @@
 
 <img src="https://github.com/itshizhan/java_study_notes/blob/master/java-basic/notes/images/collections-icon1.png?raw=true"/>
 
+Collection 是一个接口，可以通过其实现类进行创建，如ArrayList。
+例如： `Collection c = new ArrayList()`
 
 实例：
 
