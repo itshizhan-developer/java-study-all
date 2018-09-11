@@ -21,11 +21,7 @@ spring.jackson.time-zone=GMT+8
 
 - Date表示的是时间点，提供的long getTime()和setTime()方法分别用于获取时间毫秒数和设置Date类型对象的时间。Date 的每一个实例都可以表示一个确切的时间点，其内部维护了一个long类型的值，这个值所表示的是UTC时间（1970年1月1日 00：00：00）到当前时间点的毫秒数。
 
-  
-
 - SimpleDateFormat用于将时间转换成指定的格式，提供的String format()和Date parse()方法用于Date类型和String类型之间的转换。
-
-  
 
 - Calendar表示的日历，用于操作时间。其提供的Date getTime()和void setTime()方法用于Calendar与Date之间的转换，同时还提供了set和get方法，用于设置和获取当前的Calendar所表示的时间。
 
@@ -226,6 +222,102 @@ public class TvSeriesDto {
     ]
 }
 ```
+
+
+
+### 1.4 IDEA配置springboot热更新
+
+- pom添加依赖：
+
+```xml
+<!--热部署-->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-devtools</artifactId>
+    <optional>true</optional>
+</dependency>
+```
+
+-  “File” -> “Settings” -> “Build,Execution,Deplyment” -> “Compiler”，选中打勾 “Build project automatically” 
+- 组合键：“Shift+Ctrl+Alt+/” ，选择 “Registry” ，选中打勾 “compiler.automake.allow.when.app.running” 
+
+
+
+### 1.5 springboot 默认日志工具commons-logging
+
+```java
+import org.apache.commons.logging.Log; 
+import org.apache.commons.logging.LogFactory;
+
+public class CLASS
+{
+    private Log log = LogFactory.getLog(CLASS.class);
+    ...
+    ;
+    // 输出日志
+    log.fatal(Object message);
+    log.fatal(Object message, Throwable t);
+    log.error(Object message);
+    log.error(Object message, Throwable t);
+    log.warn(Object message);
+    log.warn(Object message, Throwable t);
+    log.info(Object message);
+    log.info(Object message, Throwable t);
+    log.debug(Object message);
+    log.debug(Object message, Throwable t);
+    log.trace(Object message);
+    log.trace(Object message, Throwable t);
+}
+
+```
+
+配置：
+
+```properties
+logging.file='demo1.log'
+logging.level.root="INFO"
+logging.level.java="com.itshizhan"
+```
+
+
+
+使用及输出：
+
+```java
+@RestController
+@RequestMapping("/tvseries")
+public class TvSeriesController {
+
+	private  Log log = LogFactory.getLog(TvSeriesDto.class);
+    
+	@GetMapping
+	public Map<String,Object> sayHello(){
+
+		log.info("sayHello() 方法调用了");
+
+		Map<String,Object> map = new HashMap<>();
+		map.put("code",1);
+		map.put("msg","success");
+
+		List<TvSeriesDto> list = new ArrayList<>();
+		Calendar c = Calendar.getInstance();
+		c.set(2006,Calendar.OCTOBER,1,0,0,0);
+		list.add(new TvSeriesDto(1,"大明王朝1566",c.getTime()));
+		list.add(new TvSeriesDto(2,"康熙大帝",c.getTime()));
+
+		map.put("data",list);
+
+		return  map;
+	}
+}
+
+// 访问：http://localhost:9001/tvseries 
+// 输出：2018-09-10 23:32:22.374  ---com.itshizhan.TvSeriesDto   sayHello() 方法调用了
+```
+
+
+
+
 
 
 
