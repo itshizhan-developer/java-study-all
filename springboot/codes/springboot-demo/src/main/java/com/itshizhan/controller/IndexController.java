@@ -9,12 +9,15 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 
 
 @RestController
 @RequestMapping("index")
 public class IndexController {
+
+	private String url = "http%3A%2F%2Fstem.ooowin.cc%2Finspiration_h5.html%3Fid%3D12";
 
 	@Autowired
 	BooKEntity book;
@@ -28,6 +31,15 @@ public class IndexController {
 
 	@RequestMapping("/helloWorld")
 	public String sayHello(){
+
+		try {
+			String javaUrl  = URLDecoder.decode(url,"UTF-8");
+			System.out.println("javaUrl----:"+javaUrl);
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+
+
 		return "hello spring boot,no Banner";
 	}
 

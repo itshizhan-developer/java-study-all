@@ -58,8 +58,7 @@ public interface EmployeeMapper {
 ```
 > 注意：1. 接口文件名和xml 文件名相同。
 			 2. 命名空间名称 `com.itshizhan.dao.EmployeeMapper` 同接口全限定名 `com.itshizhan.dao.EmployeeMapper` 名称一致.
-			 3. select 的id 名称 `selectEmployee` 与 `com.itshizhan.dao.EmployeeMapper` 接口的 selectEmpoyeeById 方法名称一致。
-
+			 3. select 的id 名称 `selectEmpoyeeById` 与 `com.itshizhan.dao.EmployeeMapper` 接口的 selectEmpoyeeById 方法名称一致。
 
 3）通过sqlSession 获取映射器mapper
 
@@ -82,7 +81,8 @@ public interface EmployeeMapper {
 	@Select(value="select * from t_employee where id = #{id}")  
   Employee selectEmpoyeeById(Integer id);
 }
-````
+​```
+
 ## myBatis 生命周期
 
 #### SqlSessionFactoryBuilder
@@ -91,7 +91,7 @@ public interface EmployeeMapper {
 
 #### SqlSessionFactory
 
-SqlSessionFactory 的作用是创建 SqlSession，而 SqlSession 相对于一个回话，即JDBC中的 Connection 对象。应用程序每次访问数据库，都需要通过 SqlSessionFactory 创建 SqlSession ，** 因此 SqlSessionFactory 的声明周期存在于整个应用**。 为了避免每次创建 SqlSession 对象，都会创建一个新的连接，应采用**单例的方式** ， 以避免过多的 Connection 消耗。
+SqlSessionFactory 的作用是创建 SqlSession，而 SqlSession 相对于一个回话，即JDBC中的 Connection 对象。应用程序每次访问数据库，都需要通过 SqlSessionFactory 创建 SqlSession ，**因此 SqlSessionFactory 的生命周期存在于整个应用**。 为了避免每次创建 SqlSession 对象，都会创建一个新的连接，应采用**单例的方式** ， 以避免过多的 Connection 消耗。
 
 #### SqlSession
 
@@ -102,7 +102,8 @@ SqlSessionFactory 的作用是创建 SqlSession，而 SqlSession 相对于一个
 Mapper 是一个接口，其作用是发出Sql，还回需要的结果，或修改数据库数据，**其生命周期应该在一个SqlSession 事务方法之内**，属于方法级别的东西。
 
 ## 实战： 通过单例构建SqlSession 对象: SqlSessionFactoryUtil.java
-```java
+
+​```java
 /**
  * Created by itshizhan2016 on 2018/4/5.
  */
