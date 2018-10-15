@@ -78,12 +78,13 @@ public interface EmployeeMapper {
 package com.itshizhan.dao;
 import com.itshizhan.beans.Employee;
 public interface EmployeeMapper {
-	@Select(value="select * from t_employee where id = #{id}")  
+
+ @Select(value="select * from t_employee where id = #{id}")  
   Employee selectEmpoyeeById(Integer id);
 }
-​```
-
+```
 ## myBatis 生命周期
+
 
 #### SqlSessionFactoryBuilder
 
@@ -103,10 +104,10 @@ Mapper 是一个接口，其作用是发出Sql，还回需要的结果，或修�
 
 ## 实战： 通过单例构建SqlSession 对象: SqlSessionFactoryUtil.java
 
-​```java
-/**
- * Created by itshizhan2016 on 2018/4/5.
- */
+
+
+```java
+
 package com.itshizhan.utils;
 
 import org.apache.ibatis.io.Resources;
@@ -162,8 +163,10 @@ public class SqlSessionFactoryUtil {
   }
 
 }
-
 ```
+
+
+
 
 # 二、myBatis配置
 
