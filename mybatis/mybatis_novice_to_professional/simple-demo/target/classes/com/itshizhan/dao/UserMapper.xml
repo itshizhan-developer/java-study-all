@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!--
+namespace: 对应接口的全类名
+-->
+<mapper namespace="com.itshizhan.dao.UserMapper">
+
+    <!--
+resultMap常用属性：
+    id: 必填，select 语句中resultMap属性的值
+    type: 必填，配置查询列所映射的java对象类型。
+
+resultMap包含的常用标签：
+    constructor：构造方法注入结果
+    id：id结果，唯一
+    result：注入到java对象的结果
+    association：一个复杂的类型关联，许多结果将包成这种类型。
+    collection：负责类型的集合
+    discriminator：根据结果值，使用哪个映射
+
+    **************
+    id标签和result标签意义相同，都是通过getter和setter注入，不同点在于id代表主键
+    constructor 通过构造方法注入属性的结果值。构造方法中的idArg、arg参数分别对应resultMap 中的id和result标签。
+    含义相同，只是注入方式不同。
+
+    -->
+
+    <resultMap id="userMap" type="com.itshizhan.model.SysUser">
+        <id property="id" column="id"></id>
+        <result property="userName" column="user_name"></result>
+        <result property="userPassword" column="user_password"></result>
+        <result property="userEmail" column="user_email"></result>
+        <result property="userInfo" column="user_info"></result>
+        <result property="headImg" column="head_img" jdbcType="BLOB"></result>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"></result>
+
+    </resultMap>
+
+    <select id="selectUserById" resultMap="userMap">
+      select * from sys_user where id = #{id}
+    </select>
+
+    <select id="selectAllUser" resultMap="userMap">
+        select * from sys_user
+    </select>
+
+</mapper>

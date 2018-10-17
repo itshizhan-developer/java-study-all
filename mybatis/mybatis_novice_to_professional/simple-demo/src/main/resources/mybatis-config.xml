@@ -28,6 +28,13 @@
     </environments>
 
     <mappers>
-        <mapper resource="com/itshizhan/dao/CountryMapper.xml"/>
+        <!--<mapper resource="com/itshizhan/dao/CountryMapper.xml"/>-->
+        <!--<mapper resource="com/itshizhan/dao/UserMapper.xml"/>-->
+
+        <!--
+            package: 查找name 包下所有接口，循环对接口进行操作：
+            加载接口对应的xml映射文件并进行解析、处理接口中的方法。
+        -->
+        <package name="com.itshizhan.dao"></package>
     </mappers>
 </configuration>

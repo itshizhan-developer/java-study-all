@@ -3,7 +3,9 @@ package com.itshizhan;
 import static org.junit.Assert.assertTrue;
 
 import com.itshizhan.dao.CountryMapper;
+import com.itshizhan.dao.UserMapper;
 import com.itshizhan.model.Country;
+import com.itshizhan.model.SysUser;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -52,6 +54,38 @@ public class AppTest
     private void printCountryList(List<Country> countryList){
         for(Country country : countryList){
             System.out.printf("%-4d%4s%4s\n",country.getId(), country.getCountryname(), country.getCountrycode());
+        }
+    }
+
+    @Test
+    public void selectUserById(){
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        try {
+            UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+
+            SysUser sysUser = userMapper.selectUserById(1001L);
+
+            System.out.println(sysUser);
+
+        } finally {
+            sqlSession.close();
+        }
+    }
+
+    @Test
+    public void selectAllUser(){
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        try {
+            UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+
+            List<SysUser> userList= userMapper.selectAllUser();
+
+            System.out.println(userList);
+            
+
+
+        } finally {
+            sqlSession.close();
         }
     }
 }
