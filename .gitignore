@@ -13,3 +13,5 @@ testtesttest
 *.ntvs*
 *.njsproj
 *.sln
+
+dubbo-all/incubator-dubbo/
