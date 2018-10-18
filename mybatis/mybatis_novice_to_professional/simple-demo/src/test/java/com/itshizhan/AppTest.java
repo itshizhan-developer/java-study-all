@@ -81,7 +81,7 @@ public class AppTest
             List<SysUser> userList= userMapper.selectAllUser();
 
             System.out.println(userList);
-            
+
 
 
         } finally {
