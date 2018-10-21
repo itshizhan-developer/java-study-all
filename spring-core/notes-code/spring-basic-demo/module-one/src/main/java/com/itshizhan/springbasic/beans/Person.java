@@ -3,11 +3,14 @@
  */
 package com.itshizhan.springbasic.beans;
 
+import java.util.List;
+
 public class Person {
 	private String name;
 	private int age;
 
 	Car car;
+	List<Course> courses;
 
 	public Person() {
 	}
@@ -41,12 +44,21 @@ public class Person {
 		this.car = car;
 	}
 
+	public List<Course> getCourses() {
+		return courses;
+	}
+
+	public void setCourses(List<Course> courses) {
+		this.courses = courses;
+	}
+
 	@Override
 	public String toString() {
 		return "Person{" +
 						"name='" + name + '\'' +
 						", age=" + age +
 						", car=" + car +
+						", courses=" + courses +
 						'}';
 	}
 }

@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util-4.0.xsd">
 
     <bean id="p" class="com.itshizhan.springbasic.beans.Person">
         <property name="name">
@@ -10,16 +14,28 @@
         <property name="age" value="20"></property>
     </bean>
 
+    <bean id="course1" class="com.itshizhan.springbasic.beans.Course">
+        <property name="name" value="语文"></property>
+    </bean>
+    <bean id="course2" class="com.itshizhan.springbasic.beans.Course">
+        <property name="name" value="s数学"></property>
+    </bean>
+
+    <util:list id="list1">
+        <ref bean="course1"></ref>
+        <ref bean="course1"></ref>
+    </util:list>
+
     <bean id="p1" class="com.itshizhan.springbasic.beans.Person">
-        <constructor-arg name="name" value="Ls"> </constructor-arg>
-        <constructor-arg name="age" value="22"> </constructor-arg>
+        <property name="name" value="王五"></property>
+        <property name="age" value="30"></property>
+        <property name="courses" ref="list1"></property>
     </bean>
 
     <bean id="p2" class="com.itshizhan.springbasic.beans.Person">
         <property name="name" value="王五"></property>
         <property name="age" value="30"></property>
-       <property name="car" ref="car1">
-       </property>
+
     </bean>
 
 

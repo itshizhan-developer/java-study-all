@@ -12,15 +12,10 @@ public class MainTest {
 	public static void main(String[] args) {
 
 		ApplicationContext ac = new ClassPathXmlApplicationContext("spring.xml");
-		Person p = (Person) ac.getBean("p");
 
 		Person p1 = (Person) ac.getBean("p1");
 
-		Person p2 = (Person) ac.getBean("p2");
-
-		System.out.println(p);
 		System.out.println(p1);
-		System.out.println(p2);
 	}
 
 }
