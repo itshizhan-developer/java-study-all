@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="p" class="com.itshizhan.springbasic.beans.Person">
+        <property name="name">
+            <value><![CDATA[<ZS>]]></value>
+         </property>
+        <property name="age" value="20"></property>
+    </bean>
+
+    <bean id="p1" class="com.itshizhan.springbasic.beans.Person">
+        <constructor-arg name="name" value="Ls"> </constructor-arg>
+        <constructor-arg name="age" value="22"> </constructor-arg>
+    </bean>
+
+    <bean id="p2" class="com.itshizhan.springbasic.beans.Person">
+        <property name="name" value="王五"></property>
+        <property name="age" value="30"></property>
+       <property name="car" ref="car1">
+       </property>
+    </bean>
+
+
+    <bean id="car1" class="com.itshizhan.springbasic.beans.Car">
+        <property name="type" value="奇瑞"></property>
+        <property name="name" value="瑞虎7"></property>
+    </bean>
+
+
+</beans>
