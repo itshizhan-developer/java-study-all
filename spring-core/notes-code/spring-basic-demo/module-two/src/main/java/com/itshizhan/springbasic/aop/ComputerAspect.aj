@@ -18,7 +18,7 @@ class ComputerAspect {
 
 	//@Pointcut("execution(* com.itshizhan.springbasic.aop.ComputerImp.*(..)")
 
-	@Pointcut("execution(public int com.itshizhan.springbasic.aop.ComputerImp.add(int,int))")
+	@Pointcut("execution(public int com.itshizhan.springbasic.aop.*.*(int,int))")
 	public void pointCut(){}
 
 

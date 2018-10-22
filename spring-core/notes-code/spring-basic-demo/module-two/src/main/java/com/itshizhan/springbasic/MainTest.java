@@ -14,11 +14,11 @@ public class MainTest {
 
 		ApplicationContext ac = new ClassPathXmlApplicationContext("springApplication.xml");
 
-		Computer computer = (Computer) ac.getBean("computerImp");
+		Computer computer = (Computer) ac.getBean("computer");
 
 
-		System.out.println(computer.add(5,5));
-
+		System.out.println(computer.add(6,5));
+		System.out.println("-----------");
 
 	}
 }

@@ -4,9 +4,14 @@
 package com.itshizhan.springbasic.aop;
 
 
+import org.springframework.stereotype.Component;
 
-public interface Computer {
+@Component
+public class Computer {
 
-	 int add(int a,int b);
+	 public int add(int a, int b) {
+		 return a + b ;
+	 }
+
 
 }
