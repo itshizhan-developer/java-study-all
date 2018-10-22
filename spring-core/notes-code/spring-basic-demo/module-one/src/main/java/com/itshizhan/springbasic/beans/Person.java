@@ -3,8 +3,11 @@
  */
 package com.itshizhan.springbasic.beans;
 
+import org.springframework.stereotype.Component;
+
 import java.util.List;
 
+@Component
 public class Person {
 	private String name;
 	private int age;

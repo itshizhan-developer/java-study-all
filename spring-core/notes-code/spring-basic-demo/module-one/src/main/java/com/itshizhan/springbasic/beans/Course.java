@@ -3,6 +3,9 @@
  */
 package com.itshizhan.springbasic.beans;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Course {
 	private  String name;
 

@@ -2,47 +2,53 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/util
-       http://www.springframework.org/schema/util/spring-util-4.0.xsd">
-
-    <bean id="p" class="com.itshizhan.springbasic.beans.Person">
-        <property name="name">
-            <value><![CDATA[<ZS>]]></value>
-         </property>
-        <property name="age" value="20"></property>
-    </bean>
-
-    <bean id="course1" class="com.itshizhan.springbasic.beans.Course">
-        <property name="name" value="语文"></property>
-    </bean>
-    <bean id="course2" class="com.itshizhan.springbasic.beans.Course">
-        <property name="name" value="s数学"></property>
-    </bean>
-
-    <util:list id="list1">
-        <ref bean="course1"></ref>
-        <ref bean="course1"></ref>
-    </util:list>
-
-    <bean id="p1" class="com.itshizhan.springbasic.beans.Person">
-        <property name="name" value="王五"></property>
-        <property name="age" value="30"></property>
-        <property name="courses" ref="list1"></property>
-    </bean>
-
-    <bean id="p2" class="com.itshizhan.springbasic.beans.Person">
-        <property name="name" value="王五"></property>
-        <property name="age" value="30"></property>
-
-    </bean>
+       http://www.springframework.org/schema/util/spring-util-4.0.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <context:component-scan base-package="com.itshizhan.springbasic.beans"></context:component-scan>
 
 
-    <bean id="car1" class="com.itshizhan.springbasic.beans.Car">
-        <property name="type" value="奇瑞"></property>
-        <property name="name" value="瑞虎7"></property>
-    </bean>
+    <!--<bean id="p" class="com.itshizhan.springbasic.beans.Person">-->
+        <!--<property name="name">-->
+            <!--<value><![CDATA[<ZS>]]></value>-->
+         <!--</property>-->
+        <!--<property name="age" value="20"></property>-->
+    <!--</bean>-->
+
+    <!--<bean id="course1" class="com.itshizhan.springbasic.beans.Course">-->
+        <!--<property name="name" value="语文"></property>-->
+    <!--</bean>-->
+    <!--<bean id="course2" class="com.itshizhan.springbasic.beans.Course">-->
+        <!--<property name="name" value="s数学"></property>-->
+    <!--</bean>-->
+
+    <!--<util:list id="list1">-->
+        <!--<ref bean="course1"></ref>-->
+        <!--<ref bean="course1"></ref>-->
+    <!--</util:list>-->
+
+    <!--<bean id="p1" class="com.itshizhan.springbasic.beans.Person">-->
+        <!--<property name="name" value="王五"></property>-->
+        <!--<property name="age" value="30"></property>-->
+        <!--<property name="courses" ref="list1"></property>-->
+    <!--</bean>-->
+
+    <!--<bean id="p2" class="com.itshizhan.springbasic.beans.Person">-->
+        <!--<property name="name" value="王五"></property>-->
+        <!--<property name="age" value="30"></property>-->
+
+    <!--</bean>-->
+
+
+    <!--<bean id="car1" class="com.itshizhan.springbasic.beans.Car">-->
+        <!--<property name="type" value="奇瑞"></property>-->
+        <!--<property name="name" value="瑞虎7"></property>-->
+    <!--</bean>-->
 
 
 </beans>

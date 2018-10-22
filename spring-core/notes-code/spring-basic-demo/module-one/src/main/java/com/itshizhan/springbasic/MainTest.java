@@ -13,7 +13,9 @@ public class MainTest {
 
 		ApplicationContext ac = new ClassPathXmlApplicationContext("spring.xml");
 
-		Person p1 = (Person) ac.getBean("p1");
+		Person p1 = (Person) ac.getBean("person");
+		p1.setName("zs");
+		p1.setAge(39);
 
 		System.out.println(p1);
 	}

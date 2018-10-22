@@ -3,6 +3,9 @@
  */
 package com.itshizhan.springbasic.beans;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Car {
 	private String type;
 	private String name;
