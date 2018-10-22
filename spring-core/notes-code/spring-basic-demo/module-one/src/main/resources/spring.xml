@@ -13,17 +13,17 @@
     <context:component-scan base-package="com.itshizhan.springbasic.beans"></context:component-scan>
 
 
-    <!--<bean id="p" class="com.itshizhan.springbasic.beans.Person">-->
+    <!--<bean id="p" claPersonrson">-->
         <!--<property name="name">-->
             <!--<value><![CDATA[<ZS>]]></value>-->
          <!--</property>-->
         <!--<property name="age" value="20"></property>-->
     <!--</bean>-->
 
-    <!--<bean id="course1" class="com.itshizhan.springbasic.beans.Course">-->
+    <!--<bean id="course1" claCourseurse">-->
         <!--<property name="name" value="语文"></property>-->
     <!--</bean>-->
-    <!--<bean id="course2" class="com.itshizhan.springbasic.beans.Course">-->
+    <!--<bean id="course2" claCourseurse">-->
         <!--<property name="name" value="s数学"></property>-->
     <!--</bean>-->
 
@@ -32,20 +32,20 @@
         <!--<ref bean="course1"></ref>-->
     <!--</util:list>-->
 
-    <!--<bean id="p1" class="com.itshizhan.springbasic.beans.Person">-->
+    <!--<bean id="p1" claPersonrson">-->
         <!--<property name="name" value="王五"></property>-->
         <!--<property name="age" value="30"></property>-->
         <!--<property name="courses" ref="list1"></property>-->
     <!--</bean>-->
 
-    <!--<bean id="p2" class="com.itshizhan.springbasic.beans.Person">-->
+    <!--<bean id="p2" claPersonrson">-->
         <!--<property name="name" value="王五"></property>-->
         <!--<property name="age" value="30"></property>-->
 
     <!--</bean>-->
 
 
-    <!--<bean id="car1" class="com.itshizhan.springbasic.beans.Car">-->
+    <!--<bean id="car1" claCar.Car">-->
         <!--<property name="type" value="奇瑞"></property>-->
         <!--<property name="name" value="瑞虎7"></property>-->
     <!--</bean>-->

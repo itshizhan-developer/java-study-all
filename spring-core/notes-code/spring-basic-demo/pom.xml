@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>module-one</module>
+        <module>module-two</module>
     </modules>
 
 
@@ -29,11 +30,7 @@
             <artifactId>spring-aop</artifactId>
             <version>5.0.10.RELEASE</version>
         </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-aspects</artifactId>
-            <version>4.3.13.RELEASE</version>
-        </dependency>
+       <!--aop-->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
@@ -49,6 +46,13 @@
             <artifactId>aspectjweaver</artifactId>
             <version>1.8.13</version>
         </dependency>
+        <!--Spring AOP底层会使用CGLib来做动态代理-->
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>2.2</version>
+        </dependency>
+
         <dependency>
             <groupId>commons-logging</groupId>
             <artifactId>commons-logging</artifactId>

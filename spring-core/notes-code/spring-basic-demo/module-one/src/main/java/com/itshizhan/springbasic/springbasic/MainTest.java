@@ -1,9 +1,9 @@
 /**
  * Created by leeson8888 on 2018/10/21.
  */
-package com.itshizhan.springbasic;
+package com.itshizhan.springbasic.springbasic;
 
-import com.itshizhan.springbasic.beans.Person;
+import com.itshizhan.springbasic.springbasic.beans.Person;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
