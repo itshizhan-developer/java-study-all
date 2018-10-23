@@ -42,19 +42,6 @@ public class AppTest {
 
 
 
-  @Test
-  public void mybatisTest1() throws IOException {
-
-    try {
-      //使用接口 getMapper
-      EmployeeMapper employeeMapper = sqlSession.getMapper(EmployeeMapper.class);
-      Employee employee = employeeMapper.selectEmpoyeeById(10);
-
-      System.out.println(employee);
-    } finally {
-      sqlSession.close();
-    }
-  }
 
 
   @Test

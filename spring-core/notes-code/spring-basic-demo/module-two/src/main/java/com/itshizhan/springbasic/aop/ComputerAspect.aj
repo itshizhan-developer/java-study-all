@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Aspect
-class ComputerAspect {
+public class ComputerAspect {
 
 	//@Pointcut("execution(* com.itshizhan.springbasic.aop.ComputerImp.*(..)")
 

@@ -7,9 +7,9 @@ package com.itshizhan.beans;
 
 public class Employee {
   private Integer id;
-  private String lastName;
-  private String gender;
-  private String email;
+  private String  lastName;
+  private String  gender;
+  private String  email;
   private Integer did;
 
   public Integer getId() {
