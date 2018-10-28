@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.itshizhan.mapper.StudentMapper">
+
+    <resultMap id="studentResultMap" type="com.itshizhan.entity.Student">
+        <id property="id" column="id"></id>
+        <result property="stuName" column="stu_name"></result>
+        <result property="sex" column="stu_sex"></result>
+        <result property="birthday" column="stu_birthday" jdbcType="DATE" javaType="java.sql.Date" ></result>
+        <result property="age" column="age"></result>
+    </resultMap>
+
+
+    <select id="findAllStudents" resultMap="studentResultMap" resultType="com.itshizhan.entity.Student">
+        select * from student
+    </select>
+
+</mapper>
