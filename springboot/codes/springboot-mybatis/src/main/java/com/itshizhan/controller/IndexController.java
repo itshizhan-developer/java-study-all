@@ -16,8 +16,7 @@ import java.util.List;
 @RestController
 public class IndexController {
 
-	@Autowired
-	StudentServiceImpl studentServiceImpl;
+
 
 	@Autowired
 	StudentService studentService;
@@ -31,7 +30,7 @@ public class IndexController {
 	@RequestMapping("/findStuddentById")
 	public String  findStuddentById(@RequestParam(value = "id",required = false) Integer id){
 
-		Student student = studentServiceImpl.findStudentById(id);
+		Student student = studentService.findStudentById(id);
 		String age = student.getAge()+"";
 		return "姓名："+ student.getStuName() + ",性别：" + student.getSex() + ",年龄："+age;
 

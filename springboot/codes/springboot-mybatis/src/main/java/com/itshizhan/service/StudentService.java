@@ -10,5 +10,7 @@ import java.util.List;
 
 public interface StudentService {
 
+	 Student findStudentById(Integer id);
+
 	 List<Student> findAllStudents();
 }
