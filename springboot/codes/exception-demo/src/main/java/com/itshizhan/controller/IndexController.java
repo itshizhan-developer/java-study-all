@@ -13,17 +13,18 @@ import javax.servlet.http.HttpServletRequest;
 @RestController
 public class IndexController {
 
-	@ExceptionHandler(Exception.class)
-	public Result handleException(Exception e, HttpServletRequest request) {
-		String requestURL = request.getRequestURL().toString();
-		System.out.println(requestURL);
-		e.printStackTrace();
-		return new Result(500,"服务器出错了");
-	}
+//	@ExceptionHandler(Exception.class)
+//	public Result handleException(Exception e, HttpServletRequest request) {
+//		String requestURL = request.getRequestURL().toString();
+//		System.out.println(requestURL);
+//		e.printStackTrace();
+//		return new Result(500,"服务器出错了");
+//	}
 
 	@RequestMapping("/index")
 	public String Index(){
-		int j = 2/0;
-		return "index";
+		//int j = 2/0;
+		System.out.println("-----------index--------");
+		return "hello index";
 	}
 }

@@ -4,7 +4,10 @@
 package com.itshizhan.exceptions;
 
 
+
 public class CustomException extends Exception {
+
+
 	//无参构造方法
 	public CustomException(){
 		super();
