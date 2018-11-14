@@ -1339,3 +1339,193 @@
 2018-11-12 00:54:45.162  INFO 11093 --- [http-nio-9112-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2018-11-12 00:54:45.169  INFO 11093 --- [http-nio-9112-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
 2018-11-12 00:54:45.182  WARN 11093 --- [http-nio-9112-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.itshizhan.exceptions.CustomException: 你没有权限获取全部用户]
+2018-11-12 00:55:43.699  INFO 11093 --- [Thread-147] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2018-11-12 15:52:59.204  INFO 12800 --- [restartedMain] com.itshizhan.ExceptionDemoApplication   : Starting ExceptionDemoApplication on leeson8888-MacBook-Pro.local with PID 12800 (/usr/local/var/www/gitclone/java_study_notes/springboot/codes/exception-demo/target/classes started by leeson8888 in /usr/local/var/www/gitclone/java_study_notes/springboot/codes/exception-demo)
+2018-11-12 15:52:59.211  INFO 12800 --- [restartedMain] com.itshizhan.ExceptionDemoApplication   : No active profile set, falling back to default profiles: default
+2018-11-12 15:52:59.324  INFO 12800 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2018-11-12 15:52:59.324  INFO 12800 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2018-11-12 15:53:02.075  WARN 12800 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'tomcatServletWebServerFactory' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/ServletWebServerFactoryConfiguration$EmbeddedTomcat.class]: Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: ContextPath must start with '/' and not end with '/'
+2018-11-12 15:53:02.087  INFO 12800 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2018-11-12 15:53:02.098 ERROR 12800 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'tomcatServletWebServerFactory' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/ServletWebServerFactoryConfiguration$EmbeddedTomcat.class]: Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: ContextPath must start with '/' and not end with '/'
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:155) ~[spring-boot-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:540) ~[spring-context-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140) ~[spring-boot-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775) [spring-boot-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) [spring-boot-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316) [spring-boot-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260) [spring-boot-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248) [spring-boot-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at com.itshizhan.ExceptionDemoApplication.main(ExceptionDemoApplication.java:10) [classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_91]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_91]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_91]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_91]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) [spring-boot-devtools-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'tomcatServletWebServerFactory' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/ServletWebServerFactoryConfiguration$EmbeddedTomcat.class]: Initialization of bean failed; nested exception is java.lang.IllegalArgumentException: ContextPath must start with '/' and not end with '/'
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:584) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:204) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getWebServerFactory(ServletWebServerApplicationContext.java:214) ~[spring-boot-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:178) ~[spring-boot-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:152) ~[spring-boot-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	... 13 common frames omitted
+Caused by: java.lang.IllegalArgumentException: ContextPath must start with '/' and not end with '/'
+	at org.springframework.boot.web.servlet.server.AbstractServletWebServerFactory.checkContextPath(AbstractServletWebServerFactory.java:135) ~[spring-boot-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.boot.web.servlet.server.AbstractServletWebServerFactory.setContextPath(AbstractServletWebServerFactory.java:123) ~[spring-boot-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.boot.context.properties.PropertyMapper$Source.to(PropertyMapper.java:316) ~[spring-boot-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.boot.autoconfigure.web.servlet.ServletWebServerFactoryCustomizer.customize(ServletWebServerFactoryCustomizer.java:55) ~[spring-boot-autoconfigure-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.boot.autoconfigure.web.servlet.ServletWebServerFactoryCustomizer.customize(ServletWebServerFactoryCustomizer.java:35) ~[spring-boot-autoconfigure-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.boot.web.server.WebServerFactoryCustomizerBeanPostProcessor.lambda$postProcessBeforeInitialization$0(WebServerFactoryCustomizerBeanPostProcessor.java:78) ~[spring-boot-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.boot.util.LambdaSafe$Callbacks.lambda$null$0(LambdaSafe.java:302) ~[spring-boot-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.boot.util.LambdaSafe$LambdaSafeCallback.invoke(LambdaSafe.java:162) ~[spring-boot-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.boot.util.LambdaSafe$Callbacks.lambda$invoke$1(LambdaSafe.java:301) ~[spring-boot-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at java.util.ArrayList.forEach(ArrayList.java:1249) ~[na:1.8.0_91]
+	at java.util.Collections$UnmodifiableCollection.forEach(Collections.java:1080) ~[na:1.8.0_91]
+	at org.springframework.boot.util.LambdaSafe$Callbacks.invoke(LambdaSafe.java:300) ~[spring-boot-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.boot.web.server.WebServerFactoryCustomizerBeanPostProcessor.postProcessBeforeInitialization(WebServerFactoryCustomizerBeanPostProcessor.java:78) ~[spring-boot-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.boot.web.server.WebServerFactoryCustomizerBeanPostProcessor.postProcessBeforeInitialization(WebServerFactoryCustomizerBeanPostProcessor.java:61) ~[spring-boot-2.1.0.RELEASE.jar:2.1.0.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:419) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1737) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:576) ~[spring-beans-5.1.2.RELEASE.jar:5.1.2.RELEASE]
+	... 21 common frames omitted
+
+2018-11-12 15:53:28.560  INFO 12805 --- [restartedMain] com.itshizhan.ExceptionDemoApplication   : Starting ExceptionDemoApplication on leeson8888-MacBook-Pro.local with PID 12805 (/usr/local/var/www/gitclone/java_study_notes/springboot/codes/exception-demo/target/classes started by leeson8888 in /usr/local/var/www/gitclone/java_study_notes/springboot/codes/exception-demo)
+2018-11-12 15:53:28.563  INFO 12805 --- [restartedMain] com.itshizhan.ExceptionDemoApplication   : No active profile set, falling back to default profiles: default
+2018-11-12 15:53:28.667  INFO 12805 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2018-11-12 15:53:28.668  INFO 12805 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2018-11-12 15:53:32.108  INFO 12805 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9112 (http)
+2018-11-12 15:53:32.134  INFO 12805 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-11-12 15:53:32.135  INFO 12805 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-11-12 15:53:32.149  INFO 12805 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/Users/leeson8888/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.]
+2018-11-12 15:53:32.428  INFO 12805 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-11-12 15:53:32.429  INFO 12805 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3761 ms
+2018-11-12 15:53:32.494  INFO 12805 --- [restartedMain] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-11-12 15:53:32.501  INFO 12805 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-11-12 15:53:32.501  INFO 12805 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-11-12 15:53:32.502  INFO 12805 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-11-12 15:53:32.502  INFO 12805 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-11-12 15:53:33.156  INFO 12805 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-11-12 15:53:33.627  INFO 12805 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-11-12 15:53:33.714  INFO 12805 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9112 (http) with context path ''
+2018-11-12 15:53:33.720  INFO 12805 --- [restartedMain] com.itshizhan.ExceptionDemoApplication   : Started ExceptionDemoApplication in 5.843 seconds (JVM running for 6.905)
+2018-11-12 15:54:18.370  INFO 12805 --- [Thread-6] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2018-11-12 15:54:18.650  INFO 12805 --- [restartedMain] com.itshizhan.ExceptionDemoApplication   : Starting ExceptionDemoApplication on leeson8888-MacBook-Pro.local with PID 12805 (/usr/local/var/www/gitclone/java_study_notes/springboot/codes/exception-demo/target/classes started by leeson8888 in /usr/local/var/www/gitclone/java_study_notes/springboot/codes/exception-demo)
+2018-11-12 15:54:18.651  INFO 12805 --- [restartedMain] com.itshizhan.ExceptionDemoApplication   : No active profile set, falling back to default profiles: default
+2018-11-12 15:54:19.205  INFO 12805 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9112 (http)
+2018-11-12 15:54:19.207  INFO 12805 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-11-12 15:54:19.207  INFO 12805 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-11-12 15:54:19.220  INFO 12805 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-11-12 15:54:19.220  INFO 12805 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 566 ms
+2018-11-12 15:54:19.248  INFO 12805 --- [restartedMain] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-11-12 15:54:19.249  INFO 12805 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-11-12 15:54:19.249  INFO 12805 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-11-12 15:54:19.249  INFO 12805 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-11-12 15:54:19.249  INFO 12805 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-11-12 15:54:19.707  INFO 12805 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-11-12 15:54:19.912  INFO 12805 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-11-12 15:54:19.962  INFO 12805 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9112 (http) with context path ''
+2018-11-12 15:54:19.963  INFO 12805 --- [restartedMain] com.itshizhan.ExceptionDemoApplication   : Started ExceptionDemoApplication in 1.349 seconds (JVM running for 53.148)
+2018-11-12 15:54:19.966  INFO 12805 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2018-11-12 15:54:30.409  INFO 12805 --- [Thread-10] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2018-11-12 15:54:30.726  INFO 12805 --- [restartedMain] com.itshizhan.ExceptionDemoApplication   : Starting ExceptionDemoApplication on leeson8888-MacBook-Pro.local with PID 12805 (/usr/local/var/www/gitclone/java_study_notes/springboot/codes/exception-demo/target/classes started by leeson8888 in /usr/local/var/www/gitclone/java_study_notes/springboot/codes/exception-demo)
+2018-11-12 15:54:30.727  INFO 12805 --- [restartedMain] com.itshizhan.ExceptionDemoApplication   : No active profile set, falling back to default profiles: default
+2018-11-12 15:54:31.609  INFO 12805 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9112 (http)
+2018-11-12 15:54:31.610  INFO 12805 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-11-12 15:54:31.611  INFO 12805 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-11-12 15:54:31.621  INFO 12805 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-11-12 15:54:31.621  INFO 12805 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 889 ms
+2018-11-12 15:54:31.640  INFO 12805 --- [restartedMain] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-11-12 15:54:31.641  INFO 12805 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-11-12 15:54:31.641  INFO 12805 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-11-12 15:54:31.641  INFO 12805 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-11-12 15:54:31.642  INFO 12805 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-11-12 15:54:32.425  INFO 12805 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-11-12 15:54:32.672  INFO 12805 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-11-12 15:54:32.704  INFO 12805 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9112 (http) with context path ''
+2018-11-12 15:54:32.705  INFO 12805 --- [restartedMain] com.itshizhan.ExceptionDemoApplication   : Started ExceptionDemoApplication in 2.013 seconds (JVM running for 65.89)
+2018-11-12 15:54:32.707  INFO 12805 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2018-11-12 15:54:52.238  INFO 12805 --- [Thread-16] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2018-11-12 15:54:52.581  INFO 12805 --- [restartedMain] com.itshizhan.ExceptionDemoApplication   : Starting ExceptionDemoApplication on leeson8888-MacBook-Pro.local with PID 12805 (/usr/local/var/www/gitclone/java_study_notes/springboot/codes/exception-demo/target/classes started by leeson8888 in /usr/local/var/www/gitclone/java_study_notes/springboot/codes/exception-demo)
+2018-11-12 15:54:52.583  INFO 12805 --- [restartedMain] com.itshizhan.ExceptionDemoApplication   : No active profile set, falling back to default profiles: default
+2018-11-12 15:54:53.038  INFO 12805 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9112 (http)
+2018-11-12 15:54:53.039  INFO 12805 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-11-12 15:54:53.040  INFO 12805 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-11-12 15:54:53.048  INFO 12805 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-11-12 15:54:53.048  INFO 12805 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 461 ms
+2018-11-12 15:54:53.064  INFO 12805 --- [restartedMain] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-11-12 15:54:53.065  INFO 12805 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-11-12 15:54:53.065  INFO 12805 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-11-12 15:54:53.065  INFO 12805 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-11-12 15:54:53.065  INFO 12805 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-11-12 15:54:53.341  INFO 12805 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-11-12 15:54:53.683  INFO 12805 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-11-12 15:54:53.702  INFO 12805 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9112 (http) with context path ''
+2018-11-12 15:54:53.703  INFO 12805 --- [restartedMain] com.itshizhan.ExceptionDemoApplication   : Started ExceptionDemoApplication in 1.184 seconds (JVM running for 86.887)
+2018-11-12 15:54:53.705  INFO 12805 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2018-11-12 15:54:59.122  INFO 12805 --- [Thread-22] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2018-11-12 15:54:59.514  INFO 12805 --- [restartedMain] com.itshizhan.ExceptionDemoApplication   : Starting ExceptionDemoApplication on leeson8888-MacBook-Pro.local with PID 12805 (/usr/local/var/www/gitclone/java_study_notes/springboot/codes/exception-demo/target/classes started by leeson8888 in /usr/local/var/www/gitclone/java_study_notes/springboot/codes/exception-demo)
+2018-11-12 15:54:59.515  INFO 12805 --- [restartedMain] com.itshizhan.ExceptionDemoApplication   : No active profile set, falling back to default profiles: default
+2018-11-12 15:55:00.387  INFO 12805 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9112 (http)
+2018-11-12 15:55:00.388  INFO 12805 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-11-12 15:55:00.388  INFO 12805 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-11-12 15:55:00.412  INFO 12805 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/haha]   : Initializing Spring embedded WebApplicationContext
+2018-11-12 15:55:00.412  INFO 12805 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 894 ms
+2018-11-12 15:55:00.439  INFO 12805 --- [restartedMain] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-11-12 15:55:00.440  INFO 12805 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-11-12 15:55:00.440  INFO 12805 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-11-12 15:55:00.440  INFO 12805 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-11-12 15:55:00.440  INFO 12805 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-11-12 15:55:00.677  INFO 12805 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-11-12 15:55:00.781  INFO 12805 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-11-12 15:55:00.792  INFO 12805 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9112 (http) with context path '/haha'
+2018-11-12 15:55:00.793  INFO 12805 --- [restartedMain] com.itshizhan.ExceptionDemoApplication   : Started ExceptionDemoApplication in 1.378 seconds (JVM running for 93.977)
+2018-11-12 15:55:00.795  INFO 12805 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2018-11-12 15:55:08.414  INFO 12805 --- [http-nio-9112-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/haha]   : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2018-11-12 15:55:08.417  INFO 12805 --- [http-nio-9112-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2018-11-12 15:55:08.443  INFO 12805 --- [http-nio-9112-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 26 ms
+2018-11-12 15:56:19.820  INFO 12805 --- [Thread-28] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2018-11-12 15:56:20.056  INFO 12805 --- [restartedMain] com.itshizhan.ExceptionDemoApplication   : Starting ExceptionDemoApplication on leeson8888-MacBook-Pro.local with PID 12805 (/usr/local/var/www/gitclone/java_study_notes/springboot/codes/exception-demo/target/classes started by leeson8888 in /usr/local/var/www/gitclone/java_study_notes/springboot/codes/exception-demo)
+2018-11-12 15:56:20.058  INFO 12805 --- [restartedMain] com.itshizhan.ExceptionDemoApplication   : No active profile set, falling back to default profiles: default
+2018-11-12 15:56:20.347  INFO 12805 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9112 (http)
+2018-11-12 15:56:20.348  INFO 12805 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-11-12 15:56:20.348  INFO 12805 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-11-12 15:56:20.360  INFO 12805 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2018-11-12 15:56:20.360  INFO 12805 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 298 ms
+2018-11-12 15:56:20.374  INFO 12805 --- [restartedMain] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-11-12 15:56:20.375  INFO 12805 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-11-12 15:56:20.375  INFO 12805 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-11-12 15:56:20.375  INFO 12805 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-11-12 15:56:20.375  INFO 12805 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-11-12 15:56:20.531  INFO 12805 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-11-12 15:56:20.678  INFO 12805 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-11-12 15:56:20.690  INFO 12805 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9112 (http) with context path '/api'
+2018-11-12 15:56:20.691  INFO 12805 --- [restartedMain] com.itshizhan.ExceptionDemoApplication   : Started ExceptionDemoApplication in 0.67 seconds (JVM running for 173.873)
+2018-11-12 15:56:20.692  INFO 12805 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2018-11-12 15:56:26.144  INFO 12805 --- [Thread-34] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2018-11-12 15:56:26.433  INFO 12805 --- [restartedMain] com.itshizhan.ExceptionDemoApplication   : Starting ExceptionDemoApplication on leeson8888-MacBook-Pro.local with PID 12805 (/usr/local/var/www/gitclone/java_study_notes/springboot/codes/exception-demo/target/classes started by leeson8888 in /usr/local/var/www/gitclone/java_study_notes/springboot/codes/exception-demo)
+2018-11-12 15:56:26.434  INFO 12805 --- [restartedMain] com.itshizhan.ExceptionDemoApplication   : No active profile set, falling back to default profiles: default
+2018-11-12 15:56:26.885  INFO 12805 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9112 (http)
+2018-11-12 15:56:26.887  INFO 12805 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-11-12 15:56:26.887  INFO 12805 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-11-12 15:56:26.895  INFO 12805 --- [restartedMain] o.a.c.c.C.[.[localhost].[/api/v1]        : Initializing Spring embedded WebApplicationContext
+2018-11-12 15:56:26.895  INFO 12805 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 456 ms
+2018-11-12 15:56:26.910  INFO 12805 --- [restartedMain] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-11-12 15:56:26.911  INFO 12805 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-11-12 15:56:26.911  INFO 12805 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-11-12 15:56:26.911  INFO 12805 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-11-12 15:56:26.911  INFO 12805 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-11-12 15:56:27.088  INFO 12805 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-11-12 15:56:27.313  INFO 12805 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-11-12 15:56:27.371  INFO 12805 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9112 (http) with context path '/api/v1'
+2018-11-12 15:56:27.374  INFO 12805 --- [restartedMain] com.itshizhan.ExceptionDemoApplication   : Started ExceptionDemoApplication in 0.976 seconds (JVM running for 180.556)
+2018-11-12 15:56:27.377  INFO 12805 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2018-11-12 15:56:34.240  INFO 12805 --- [http-nio-9112-exec-1] o.a.c.c.C.[.[localhost].[/api/v1]        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2018-11-12 15:56:34.240  INFO 12805 --- [http-nio-9112-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2018-11-12 15:56:34.252  INFO 12805 --- [http-nio-9112-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 12 ms
