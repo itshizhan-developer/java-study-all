@@ -16,6 +16,7 @@ public class BookController {
 	@GetMapping("/book")
 	public Book book(){
 
+		int i = 1/0;
 
 		Book book = new Book();
 		book.setAuthor("罗贯中");

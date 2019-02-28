@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--suppress ALL-->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>5xx</title>
+</head>
+<body>
+
+<h2>出错了</h2>
+<hr/>
+<table border="1" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>错误类型</td>
+    <td>描述</td>
+  </tr>
+  <tr>
+    <td>customError:</td>
+    <td th:text="${customError}"></td>
+  </tr>
+  <tr>
+    <td>timestamp:</td>
+    <td th:text="${timestamp}"></td>
+  </tr>
+  <tr>
+    <td>status:</td>
+    <td th:text="${status}"></td>
+  </tr>
+  <tr>
+    <td>error:</td>
+    <td th:text="${error}"></td>
+  </tr>
+  <tr>
+    <td>message:</td>
+    <td th:text="${message}"></td>
+  </tr>
+  <tr>
+    <td>path:</td>
+    <td th:text="${path}"></td>
+  </tr>
+</table>
+</body>
+</html>
