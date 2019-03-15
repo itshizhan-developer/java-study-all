@@ -9,3 +9,5 @@
 [四、java基础知识笔记](https://github.com/itshizhan/java_study_notes/blob/master/mybatis/mybatis%E7%AC%94%E8%AE%B0.md)
 
 [五、java进阶知识笔记](https://github.com/itshizhan/java_study_notes/blob/master/mybatis/mybatis%E7%AC%94%E8%AE%B0.md)
+
+[六、dubbo进阶笔记](https://github.com/itshizhan/java_study_notes/blob/master/mybatis/mybatis%E7%AC%94%E8%AE%B0.md)
