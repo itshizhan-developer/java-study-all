@@ -17,3 +17,8 @@ testtesttest
 dubbo-all/incubator-dubbo/
 dubbo-all/incubator-dubbo-ops/
 target
+springboot/codes/springboot-vue-action/chapter1/target/chapter1-1.0-SNAPSHOT.jar
+*.jar
+springboot/codes/springboot-vue-action/chapter1/target/chapter1-1.0-SNAPSHOT.jar
+*.jar
+*.original
