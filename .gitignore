@@ -22,3 +22,7 @@ springboot/codes/springboot-vue-action/chapter1/target/chapter1-1.0-SNAPSHOT.jar
 springboot/codes/springboot-vue-action/chapter1/target/chapter1-1.0-SNAPSHOT.jar
 *.jar
 *.original
+springboot/codes/springboot-vue-action/chapter13/src/main/resources/application.properties
+springboot/codes/springboot-vue-action/chapter13/src/test/java/com/itshizhan/mailservice/MailServiceTest.java
+springboot/codes/springboot-vue-action/chapter13/src/test/java/com/itshizhan/mailservice/MailServiceTest.java
+springboot/codes/springboot-vue-action/chapter13/src/main/resources/application.properties
