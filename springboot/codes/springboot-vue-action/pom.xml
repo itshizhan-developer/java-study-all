@@ -16,6 +16,7 @@
         <module>chapter15</module>
         <module>chapter14</module>
         <module>chapter13</module>
+        <module>chapter13-swagger</module>
 
     </modules>
 
