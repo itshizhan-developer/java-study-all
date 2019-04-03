@@ -20,6 +20,7 @@
         <module>chapter13-batch</module>
         <module>chapter10-security</module>
         <module>chapter10-security-mybatis</module>
+        <module>chapter10-shiro</module>
 
     </modules>
 
