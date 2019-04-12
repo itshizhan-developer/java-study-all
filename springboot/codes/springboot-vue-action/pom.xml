@@ -21,6 +21,9 @@
         <module>chapter10-security</module>
         <module>chapter10-security-mybatis</module>
         <module>chapter10-shiro</module>
+        <module>chapter88-security-demo</module>
+        <module>chapter2</module>
+        <module>chapter4-cors</module>
 
     </modules>
 
@@ -34,6 +37,10 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
     </dependencies>
 </project>
