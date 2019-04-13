@@ -24,6 +24,7 @@
         <module>chapter88-security-demo</module>
         <module>chapter2</module>
         <module>chapter4-cors</module>
+        <module>chapter4-aop</module>
 
     </modules>
 
