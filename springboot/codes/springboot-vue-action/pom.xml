@@ -26,6 +26,8 @@
         <module>chapter4-cors</module>
         <module>chapter4-aop</module>
         <module>chapter4-servlet</module>
+        <module>chapter4-commandlinerunner</module>
+        <module>chapter4-interceptor</module>
 
     </modules>
 
