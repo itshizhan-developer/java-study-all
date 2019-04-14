@@ -1,4 +1,4 @@
-package com.itshizhan.service;
+package com.itshizhan.services;
 
 import com.itshizhan.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
