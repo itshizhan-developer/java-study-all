@@ -30,6 +30,7 @@
         <module>chapter4-interceptor</module>
         <module>chapter8-test</module>
         <module>chapter8-unit-test</module>
+        <module>chapter8-jsonstudy</module>
 
     </modules>
 
