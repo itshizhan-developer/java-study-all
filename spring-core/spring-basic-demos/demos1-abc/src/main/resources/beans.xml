@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--<bean id="user"-->
+          <!--class="com.itshizhan.bean.User"-->
+          <!--scope="singleton" init-method="initUser" destroy-method="destoryUser"></bean>-->
+
+    <bean id="user"
+          class="com.itshizhan.bean.User">
+        <property name="uid" value="1"></property>
+        <property name="uname" value="jack"></property>
+        <property name="password" value="123456"></property>
+        <property name="pet" ref="pet"></property>
+    </bean>
+    <bean id="pet" class="com.itshizhan.bean.Pet">
+        <property name="id" value="1"></property>
+        <property name="name" value="dog"></property>
+    </bean>
+
+
+</beans>
