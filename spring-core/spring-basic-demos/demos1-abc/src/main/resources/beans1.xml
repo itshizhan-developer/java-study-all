@@ -23,4 +23,38 @@
         <property name="name" value="dog"></property>
     </bean>
 
+    <bean id="myCollection" class="com.itshizhan.bean.MyCollection">
+        <property name="array">
+            <array>
+                <value>123</value>
+                <value>abc</value>
+                <ref bean="pet"></ref>
+            </array>
+        </property>
+        <property name="list">
+            <list>
+                <value>123</value>
+                <value>abc</value>
+                <ref bean="pet"></ref>
+            </list>
+        </property>
+        <property name="set">
+            <set>
+                <value>123</value>
+                <value>123</value>
+            </set>
+        </property>
+        <property name="map">
+            <map>
+                <entry key="username" value="Jack"></entry>
+                <entry key="course" value="Java"></entry>
+            </map>
+        </property>
+        <property name="properties">
+            <props>
+                <prop key="name">张三</prop>
+                <prop key="like">李四</prop>
+            </props>
+        </property>
+    </bean>
 </beans>

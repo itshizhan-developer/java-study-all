@@ -72,5 +72,13 @@ public class UserTest {
 
 	}
 
+	@Test
+	public void userBean8(){
+		MyCollection myCollection = ac.getBean(MyCollection.class);
+		System.out.println(myCollection);
+
+	}
+
+
 
 }
