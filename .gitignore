@@ -26,3 +26,4 @@ springboot/codes/springboot-vue-action/chapter13/src/main/resources/application.
 springboot/codes/springboot-vue-action/chapter13/src/test/java/com/itshizhan/mailservice/MailServiceTest.java
 springboot/codes/springboot-vue-action/chapter13/src/test/java/com/itshizhan/mailservice/MailServiceTest.java
 springboot/codes/springboot-vue-action/chapter13/src/main/resources/application.properties
+shiro-all/springboot-shiro/
