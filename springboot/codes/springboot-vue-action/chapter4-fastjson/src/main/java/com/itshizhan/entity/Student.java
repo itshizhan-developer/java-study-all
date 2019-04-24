@@ -15,12 +15,13 @@ public class Student {
 	@JSONField(name = "personAge",serialize = false)
 	private int age;
 
-	@JSONField(name = "name")
+	@JSONField(name = "name",ordinal = 1)
 	private String fullName;
 
-	@JSONField(name = "birthday",format = "yyyy-MM-dd")
+	@JSONField(name = "birthday",format = "yyyy-MM-dd",ordinal = 2)
 	private Date dateOfBirth;
 
+	@JSONField(ordinal = 3)
 	private StudyCourse studyCourse;
 
 

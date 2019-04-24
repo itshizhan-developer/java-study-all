@@ -55,8 +55,8 @@ public class TestController {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
 		Student stu1 = new Student();
-		stu1.setDateOfBirth(sdf.parse("1998-11-11 12:00:01"));
 		stu1.setFullName("Jack");
+		stu1.setDateOfBirth(sdf.parse("1998-11-11 12:00:01"));
 		stu1.setStudyCourse(new StudyCourse("python"));
 
 		return JSONObject.parseObject(JSON.toJSONString(stu1));
@@ -99,6 +99,22 @@ public class TestController {
 		jsonObject.put("birthDay", "2019/12/12 12:12:12");
 
 		return jsonObject;
+	}
+
+	@GetMapping("/toJava")
+	public Student toJava() {
+		Student stu = new Student();
+		stu.setFullName("Jack");
+		stu.setStudyCourse(new StudyCourse("python"));
+
+		// 获取jsonStr 并转换为Student 对象
+		String jsonStr = JSON.toJSONString(stu);
+		//Student student = JSON.parseObject(jsonStr,Student.class); // 同下
+		Student student = JSONObject.parseObject(jsonStr,Student.class);
+
+		return student;
+
+
 	}
 
 }
