@@ -13,9 +13,7 @@ public class FastjsonConfig {
 		@Bean
 		FastJsonHttpMessageConverter fastJsonHttpMessageConverter () {
 			FastJsonHttpMessageConverter converter= new FastJsonHttpMessageConverter () ;
-
 			FastJsonConfig config = new FastJsonConfig ();
-
 			config.setDateFormat("yyyy-MM-dd");
 			config.setSerializerFeatures(
 							//SerializerFeature.WriteClassName, // 会生成@type 字段
