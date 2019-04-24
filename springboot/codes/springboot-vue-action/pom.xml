@@ -31,6 +31,7 @@
         <module>chapter8-test</module>
         <module>chapter8-unit-test</module>
         <module>chapter8-jsonstudy</module>
+        <module>chapter4-fastjson</module>
 
     </modules>
 
