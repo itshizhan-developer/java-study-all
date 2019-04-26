@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.itshizhan.dao.BookMapper">
+
+
+    <insert id="addBook" parameterType="book" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+        insert into chapter6_book(name, author) VALUES (#{name},#{author})
+    </insert>
+    <delete id="deleteBookById" parameterType="int">
+        delete from chapter6_book where id = #{id}
+    </delete>
+    <update id="updateBookById" parameterType="book">
+        update chapter6_book set name = #{name},author = #{author} where id = #{id}
+    </update>
+    <select id="getBookById" resultType="book" parameterType="int">
+        select id,name,author from chapter6_book where id = #{id}
+    </select>
+    <select id="getAllBooks" resultType="book">
+        select id,name,author from chapter6_book
+    </select>
+    <select id="getBooksByPage" resultType="book">
+        select id,name,author from chapter6_book
+    </select>
+
+
+</mapper>
