@@ -18,10 +18,10 @@
   <td>图书名称</td>
   <td>图书作者</td>
 </tr>
-<tr th:each="book:${books}">
-  <td th:text="${book.bookId}"></td>
-  <td th:text="${book.bookName}"></td>
-  <td th:text="${book.bookAuthor}"></td>
+<tr th:each="newBook:${books}">
+  <td th:text="${newBook.bookId}"></td>
+  <td th:text="${newBook.bookName}"></td>
+  <td th:text="${newBook.bookAuthor}"></td>
 </tr>
 </table>
 </body>

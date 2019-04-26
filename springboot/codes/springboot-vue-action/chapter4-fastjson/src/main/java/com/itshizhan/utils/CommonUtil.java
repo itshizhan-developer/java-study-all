@@ -74,7 +74,7 @@ public class CommonUtil {
 				Object val = jsonObject.get(column.trim());
 				// 没有必选的参数
 				if (StringTools.isNullOrEmpty(val)) {
-					missCol += column + "  ";
+					missCol += column + " ";
 				}
 			}
 			if (!StringTools.isNullOrEmpty(missCol)) {
