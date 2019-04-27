@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TestController {
 	@GetMapping("/")
-	public String toString() {
-		return "hello,springboot shiro vue rbac";
+	public String index() {
+		return "hello springboot shiro vue";
 	}
 }
