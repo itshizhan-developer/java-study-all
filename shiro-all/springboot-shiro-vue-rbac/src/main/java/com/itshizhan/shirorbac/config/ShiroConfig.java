@@ -1,5 +1,6 @@
 package com.itshizhan.shirorbac.config;
 
+import com.itshizhan.shirorbac.shiro.AjaxPermissionsAuthorizationFilter;
 import com.itshizhan.shirorbac.shiro.UserRealm;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.mgt.SessionsSecurityManager;
@@ -11,6 +12,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 
+import javax.servlet.Filter;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -23,13 +25,19 @@ public class ShiroConfig  {
 	@Bean(name = "shiroFilter")
 	public ShiroFilterFactoryBean shiroFilterFactoryBean(SecurityManager securityManager) {
 		ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
+
 		//Shiro的核心安全接口,这个属性是必须的
 		shiroFilterFactoryBean.setSecurityManager(securityManager);
-		shiroFilterFactoryBean.setLoginUrl("/login");
+		// 自定义认证过滤器
+		Map<String, Filter> filterMap1 = new LinkedHashMap<>();
+		filterMap1.put("authc", new AjaxPermissionsAuthorizationFilter());
+		shiroFilterFactoryBean.setFilters(filterMap1);
+
+		//shiroFilterFactoryBean.setLoginUrl("/login");
 
 		Map<String, String> filterMap = new LinkedHashMap<>();
-		filterMap.put("/", "anon");
-		filterMap.put("/login", "anon"); // 登录页面不需要授权
+		//filterMap.put("/login", "anon"); // 登录页面不需要授权
+		filterMap.put("/noAuth", "anon"); // 添加一个不需要登录的进行测试
 		filterMap.put("/login/auth", "anon"); // 登录处理页面不需要授权
 		filterMap.put("/**", "authc");
 
