@@ -3,8 +3,6 @@ package com.itshizhan.shirorbac.config;
 import com.itshizhan.shirorbac.shiro.AjaxPermissionsAuthorizationFilter;
 import com.itshizhan.shirorbac.shiro.UserRealm;
 import org.apache.shiro.mgt.SecurityManager;
-import org.apache.shiro.mgt.SessionsSecurityManager;
-import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -48,10 +46,13 @@ public class ShiroConfig  {
 	/**
 	 * Shiro Realm 继承自AuthorizingRealm的自定义Realm,即指定Shiro验证用户登录的类为自定义的
 	 */
-//	@Bean("authorizer")
-//	public UserRealm realm(){
-//		return new UserRealm();
-//	}
+	/**
+		@Bean("authorizer")
+		public UserRealm realm(){
+			return new UserRealm();
+		}
+	*/
+
 	@Bean("userRealm")
 	public UserRealm realm(){
 		return new UserRealm();
