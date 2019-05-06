@@ -8,6 +8,7 @@ import com.itshizhan.shirorbac.utils.CommonUtil;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.crypto.hash.Md5Hash;
 import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,6 +34,11 @@ public class LoginServiceImpl implements LoginService {
 		String username = jsonObject.getString("username");
 		String password = jsonObject.getString("password");
 		Subject currentUser = SecurityUtils.getSubject();
+
+		//UsernamePasswordToken token = new UsernamePasswordToken(username, password);
+		//Md5Hash hash = new Md5Hash(password,username,2);
+		password = CommonUtil.pwdToMd5(password,username);
+		System.out.println("password md5 hash:" + password);
 		UsernamePasswordToken token = new UsernamePasswordToken(username, password);
 		try {
 			currentUser.login(token);

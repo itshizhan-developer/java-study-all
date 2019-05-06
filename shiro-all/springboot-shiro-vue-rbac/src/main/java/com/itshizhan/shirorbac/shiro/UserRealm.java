@@ -26,13 +26,13 @@ public class UserRealm  extends AuthorizingRealm {
 
 		// 获取用户提交的token:包含用户名和密码
 		UsernamePasswordToken uToken = (UsernamePasswordToken) token;
-		String loginName = uToken.getUsername();
+		String username = uToken.getUsername();
 
 		// 获取密码可以使用uToken.getCredentials()，Object 类型;也可以使用 uToken.getPassword()，字节数组 byte[] 类型
-		String loginPassword = new String(uToken.getPassword());
+		String password = new String(uToken.getPassword());
 
 		// 根据登录token，查询数据用户，并进行比对
-		JSONObject user = loginService.getUser(loginName,loginPassword);
+		JSONObject user = loginService.getUser(username,password);
 
 		//1.判断用户名
 		if(user == null){

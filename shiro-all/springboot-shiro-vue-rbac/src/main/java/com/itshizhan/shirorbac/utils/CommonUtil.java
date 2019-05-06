@@ -3,6 +3,7 @@ package com.itshizhan.shirorbac.utils;
 import com.alibaba.fastjson.JSONObject;
 import com.itshizhan.shirorbac.constants.ResultEnum;
 import com.itshizhan.shirorbac.exception.CommonJsonException;
+import org.apache.shiro.crypto.hash.Md5Hash;
 
 /**
  * 通用工具类
@@ -86,5 +87,14 @@ public class CommonUtil {
 
 	}
 
+	public static String pwdToMd5(String password,String salt){
+		Md5Hash hash = new Md5Hash(password,salt,2);
+		return hash.toString();
+	}
+
+	public static void main(String[] args) {
+		String md5 = CommonUtil.pwdToMd5("123456","test");
+		System.out.println(md5);
+	}
 
 }

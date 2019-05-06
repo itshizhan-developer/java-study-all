@@ -47,13 +47,12 @@ public class LoginController {
 	@Autowired
 	private LoginService loginService;
 
-@PostMapping("/auth")
-public JSONObject loginAuth(@RequestBody JSONObject requestJson){
+	@PostMapping("/auth")
+	public JSONObject loginAuth(@RequestBody JSONObject requestJson){
+		CommonUtil.hasAllRequired(requestJson, "username,password");
+		return loginService.authLogin(requestJson);
 
-	CommonUtil.hasAllRequired(requestJson, "username,password");
-	return loginService.authLogin(requestJson);
-
-}
+	}
 
 	@GetMapping("/getUserInfo")
 	public Map<String,Object> getUserInfo(){
