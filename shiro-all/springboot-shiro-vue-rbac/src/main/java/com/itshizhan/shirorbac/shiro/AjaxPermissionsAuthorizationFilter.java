@@ -3,6 +3,8 @@ package com.itshizhan.shirorbac.shiro;
 import com.alibaba.fastjson.JSONObject;
 import com.itshizhan.shirorbac.constants.ResultEnum;
 import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.context.annotation.Bean;
 
 
 import javax.servlet.ServletRequest;
@@ -45,11 +47,11 @@ public class AjaxPermissionsAuthorizationFilter extends FormAuthenticationFilter
 	 *
 	 */
 
-	//	@Bean
-	//	public FilterRegistrationBean registration(AjaxPermissionsAuthorizationFilter filter) {
-	//		FilterRegistrationBean registration = new FilterRegistrationBean(filter);
-	//		registration.setEnabled(false);
-	//		return registration;
-	//}
+		@Bean
+		public FilterRegistrationBean registration(AjaxPermissionsAuthorizationFilter filter) {
+			FilterRegistrationBean registration = new FilterRegistrationBean(filter);
+			registration.setEnabled(false);
+			return registration;
+	}
 
 }

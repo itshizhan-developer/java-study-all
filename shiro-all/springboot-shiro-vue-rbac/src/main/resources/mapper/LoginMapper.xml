@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.itshizhan.shirorbac.dao.LoginDao">
+
+    <resultMap id="getUserMap" type="com.alibaba.fastjson.JSONObject">
+        <id column="id" property="userId"></id>
+        <result column="username" property="username"></result>
+        <result column="password" property="password"></result>
+        <result column="nickname" property="nickName"></result>
+    </resultMap>
+
+    <select id="getUser"  resultMap="getUserMap">
+        SELECT
+           id,username,password,nickname
+        FROM
+            sys_user u
+        WHERE u.username = #{username}
+          AND u.password = #{password}
+          AND u.delete_status = '1'
+    </select>
+
+</mapper>

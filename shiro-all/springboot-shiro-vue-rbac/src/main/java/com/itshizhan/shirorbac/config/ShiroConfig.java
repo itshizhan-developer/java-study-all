@@ -20,7 +20,7 @@ public class ShiroConfig  {
 	/**
 	 * Shiro的Web过滤器Factory 命名:shiroFilter
 	 */
-	@Bean(name = "shiroFilter")
+	@Bean(name = "shiroFilterFactoryBean")
 	public ShiroFilterFactoryBean shiroFilterFactoryBean(SecurityManager securityManager) {
 		ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
 
