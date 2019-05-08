@@ -3,7 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.itshizhan.shirorbac.dao.LoginDao">
 
-    <resultMap id="getUserMap" type="com.alibaba.fastjson.JSONObject">
+    <resultMap id="getUserMap" type="jsonObject">
         <id column="id" property="userId"></id>
         <result column="username" property="username"></result>
         <result column="password" property="password"></result>

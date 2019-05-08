@@ -1,10 +1,13 @@
 package com.itshizhan.shirorbac.shiro;
 
 import com.alibaba.fastjson.JSONObject;
+import com.itshizhan.shirorbac.constants.Constants;
 import com.itshizhan.shirorbac.service.LoginService;
+import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
+import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -40,9 +43,17 @@ public class UserRealm  extends AuthorizingRealm {
 		}
 
 		//2.判断密码， 注意第一个参数为user，否则授权时 subject.getPrincipal()返回的类型可能不匹配
-		return new SimpleAuthenticationInfo(
+		SimpleAuthenticationInfo authenticationInfo =  new SimpleAuthenticationInfo(
 						user.getString("username"),
 						user.getString("password"),"");
+
+		// 密码验证成功，返回登录成功前存储登录成功的信息
+		//session中不需要保存密码
+		user.remove("password");
+		SecurityUtils.getSubject().getSession().setAttribute(Constants.SESSION_USER_INFO,user);
+		return authenticationInfo;
+
+
 
 
 	}

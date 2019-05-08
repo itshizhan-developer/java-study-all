@@ -54,12 +54,9 @@ public class LoginController {
 
 	}
 
-	@GetMapping("/getUserInfo")
-	public Map<String,Object> getUserInfo(){
-		Map<String,Object> map = new HashMap<>();
-		map.put("code",1);
-		map.put("msg","获取用户信息成功");
-		return map;
+	@PostMapping("/getInfo")
+	public JSONObject getUserInfo(){
+		return loginService.getInfo();
 	}
 
 }
