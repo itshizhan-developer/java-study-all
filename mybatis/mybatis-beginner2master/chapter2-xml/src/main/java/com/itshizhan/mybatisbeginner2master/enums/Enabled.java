@@ -1,22 +1,35 @@
 package com.itshizhan.mybatisbeginner2master.enums;
 
-public enum Enabled {
-	enabled(1,"启用"), //启用
-	disabled(0,"禁用");//禁用
+public enum Enabled implements BaseEnum{
+	ENABLED(1,"启用"),
+	DISABLED(0,"禁用");
 
-	private final int value;
-	private final String desc;
+	private Integer code;
+	private String label;
 
-	Enabled(int value, String desc) {
-		this.value = value;
-		this.desc = desc;
+	Enabled(Integer code, String label) {
+		this.code = code;
+		this.label = label;
 	}
 
-	public int getValue() {
-		return value;
+	@Override
+	public Integer getCode() {
+		return this.code;
 	}
 
-	public String getDesc() {
-		return desc;
+	@Override
+	public String getLabel() {
+		return this.label;
 	}
+
+	public static Enabled getEnumByStr(String s){
+		if(Enabled.ENABLED.toString().equals(s)){
+			return Enabled.ENABLED;
+		}
+		if(Enabled.DISABLED.toString().equals(s)){
+			return Enabled.DISABLED;
+		}
+		return null;
+	}
+
 }

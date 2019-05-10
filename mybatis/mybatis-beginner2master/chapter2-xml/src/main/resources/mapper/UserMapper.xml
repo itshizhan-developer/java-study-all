@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.itshizhan.mybatisbeginner2master.mapper.UserMapper">
+	<resultMap id="userMap" type="com.itshizhan.mybatisbeginner2master.bean.SysUser">
+		<id column="id" property="id"/>
+		<result column="user_name" property="userName"/>
+		<result column="user_password" property="userPassword"/>
+		<result column="user_email" property="userEmail"/>
+		<result column="user_info" property="userInfo"/>
+		<result column="head_img" property="headImg" jdbcType="BLOB"/>
+		<result column="create_time" property="createTime" />
+	</resultMap>
+
+	<select id="selectById" resultMap="userMap">
+		select
+		  id,user_name,user_password,user_email,user_info,head_img,create_time
+		from
+		  sys_user where id = #{id}
+	</select>
+
+	<select id="selectAll" resultMap="userMap">
+		select
+		  id,user_name,user_password,user_email,user_info,head_img,create_time
+		from sys_user
+	</select>
+	<select id="selectRolesByUserId" resultType="com.itshizhan.mybatisbeginner2master.bean.SysRole">
+		  select
+		   	r.id,
+		  	r.role_name roleName,
+		    r.enabled enabled,
+		    r.create_by createBy,
+		  	r.create_time createTime
+		  from sys_user u
+		  inner join sys_user_role ur on u.id = ur.user_id
+		  inner join sys_role r on r.id = ur.role_id
+		  where u.id = #{userId}
+	</select>
+
+</mapper>

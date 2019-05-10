@@ -6,6 +6,11 @@
     <!--<settings>-->
         <!--<setting name="logImpl" value="LOG4J"/>-->
     <!--</settings>-->
-
+    <!--https://segmentfault.com/a/1190000012564028-->
+    <!--https://segmentfault.com/a/1190000010755321-->
+    <typeHandlers>
+        <typeHandler handler="com.itshizhan.mybatisbeginner2master.enums.EnumTypeHandler"
+                     javaType="com.itshizhan.mybatisbeginner2master.enums.Enabled" />
+    </typeHandlers>
 
 </configuration>
