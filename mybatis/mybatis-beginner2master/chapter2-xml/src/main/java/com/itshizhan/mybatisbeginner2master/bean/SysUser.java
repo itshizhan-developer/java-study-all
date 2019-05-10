@@ -1,6 +1,7 @@
 package com.itshizhan.mybatisbeginner2master.bean;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,6 +24,7 @@ public class SysUser {
 	/**
 	 * 用户密码
 	 */
+	@JsonIgnore
 	private String userPassword;
 	/**
 	 * 用户email

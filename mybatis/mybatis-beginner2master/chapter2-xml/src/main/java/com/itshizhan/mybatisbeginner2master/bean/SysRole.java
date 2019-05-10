@@ -1,5 +1,6 @@
 package com.itshizhan.mybatisbeginner2master.bean;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.itshizhan.mybatisbeginner2master.enums.Enabled;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -42,11 +43,13 @@ public class SysRole implements Serializable {
 	/**
 	 * 创建信息
 	 */
+	@JsonIgnore
 	private CreateInfo createInfo;
 
 	/**
 	 * 角色包含的权限列表
 	 */
+	@JsonIgnore
 	List<SysPrivilege> privilegeList;
 
 }

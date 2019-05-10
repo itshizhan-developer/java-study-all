@@ -1,6 +1,7 @@
 package com.itshizhan.mybatisbeginner2master.mapper;
 
 import com.itshizhan.mybatisbeginner2master.bean.SysRole;
+import com.itshizhan.mybatisbeginner2master.bean.SysRoleExtend;
 import com.itshizhan.mybatisbeginner2master.bean.SysUser;
 import org.springframework.stereotype.Repository;
 
@@ -27,4 +28,11 @@ public interface UserMapper {
 	 * @return
 	 */
 	List<SysRole> selectRolesByUserId(Long userId);
+
+	/**
+	 * 查询用户信息和用户的角色信息
+	 * @param userId
+	 * @return
+	 */
+	List<SysRoleExtend> selectUsersAndRolesByUserId(Long userId);
 }

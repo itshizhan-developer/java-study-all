@@ -1,6 +1,7 @@
 package com.itshizhan.mybatisbeginner2master.controller;
 
 import com.itshizhan.mybatisbeginner2master.bean.SysRole;
+import com.itshizhan.mybatisbeginner2master.bean.SysRoleExtend;
 import com.itshizhan.mybatisbeginner2master.bean.SysUser;
 import com.itshizhan.mybatisbeginner2master.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,11 @@ public class UserController {
 	public List<SysUser> getAllUser(){
 		List<SysUser> userList = userMapper.selectAll();
 		return userList;
+	}
+
+	@GetMapping("/selectUsersAndRolesByUserId")
+	public List<SysRoleExtend> selectUsersAndRolesByUserId(Long id){
+		return userMapper.selectUsersAndRolesByUserId(id);
 	}
 
 }

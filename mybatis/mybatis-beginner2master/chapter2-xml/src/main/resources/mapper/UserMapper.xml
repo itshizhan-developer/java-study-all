@@ -30,11 +30,29 @@
 		  	r.role_name roleName,
 		    r.enabled enabled,
 		    r.create_by createBy,
-		  	r.create_time createTime
+		  	r.create_time createTime,
+		  	u.user_name AS 'user.username',
+		  	u.user_email AS 'user.userEmail'
 		  from sys_user u
 		  inner join sys_user_role ur on u.id = ur.user_id
 		  inner join sys_role r on r.id = ur.role_id
 		  where u.id = #{userId}
+	</select>
+
+	<select id="selectUsersAndRolesByUserId"
+			resultType="com.itshizhan.mybatisbeginner2master.bean.SysRoleExtend">
+		select
+			r.id,
+			r.role_name roleName,
+			r.enabled enabled,
+			r.create_by createBy,
+			r.create_time createTime,
+			u.user_name userName
+		from sys_user u
+				 inner join sys_user_role ur on u.id = ur.user_id
+				 inner join sys_role r on r.id = ur.role_id
+		where u.id = #{userId}
+
 	</select>
 
 </mapper>
