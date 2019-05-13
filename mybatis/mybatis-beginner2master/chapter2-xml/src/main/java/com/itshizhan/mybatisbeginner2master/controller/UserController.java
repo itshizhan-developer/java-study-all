@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -40,5 +41,67 @@ public class UserController {
 	public List<SysRoleExtend> selectUsersAndRolesByUserId(Long id){
 		return userMapper.selectUsersAndRolesByUserId(id);
 	}
+
+	@GetMapping("/adduser")
+	public SysUser insertUser(){
+		SysUser user = new SysUser();
+		user.setUserName("test1");
+		user.setUserPassword("123456");
+		user.setUserEmail("itshizhan@163.com");
+		user.setUserInfo("test user info");
+		//正常情况下应该读入一张图片存到 byte 数纽中
+		user.setHeadImg(new byte[] {1, 2, 3});
+		user.setCreateTime(new Date());
+
+
+		int i = userMapper.insertUser(user);
+		if(i>0){
+			return user;
+		}else{
+			return new SysUser();
+		}
+
+	}
+
+	@GetMapping("/adduser1")
+	public SysUser insertUser1(){
+		SysUser user = new SysUser();
+		user.setUserName("test1");
+		user.setUserPassword("1234567");
+		user.setUserEmail("itshizhan@163.com");
+		user.setUserInfo("test user info");
+		//正常情况下应该读入一张图片存到 byte 数纽中
+		user.setHeadImg(new byte[] {1, 2, 3});
+		user.setCreateTime(new Date());
+
+		int i = userMapper.insertUserAndGetId(user);
+		if(i>0){
+			return user;
+		}else{
+			return new SysUser();
+		}
+
+	}
+
+	@GetMapping("/adduser2")
+	public SysUser insertUser2(){
+		SysUser user = new SysUser();
+		user.setUserName("test2");
+		user.setUserPassword("12345678");
+		user.setUserEmail("itshizhan@163.com");
+		user.setUserInfo("test user info");
+		//正常情况下应该读入一张图片存到 byte 数纽中
+		user.setHeadImg(new byte[] {1, 2, 3});
+		user.setCreateTime(new Date());
+
+		int i = userMapper.insertUserAndSelectKey(user);
+		if(i>0){
+			return user;
+		}else{
+			return new SysUser();
+		}
+
+	}
+
 
 }

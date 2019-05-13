@@ -12,6 +12,7 @@
 		<result column="create_time" property="createTime" />
 	</resultMap>
 
+
 	<select id="selectById" resultMap="userMap">
 		select
 		  id,user_name,user_password,user_email,user_info,head_img,create_time
@@ -54,5 +55,37 @@
 		where u.id = #{userId}
 
 	</select>
+
+
+	<insert id="insertUser" >
+		insert into sys_user (
+		  id,user_name, user_password, user_email, user_info, head_img, create_time
+		)
+		values (
+			#{id},#{userName}, #{userPassword} ,#{userEmail},
+		    #{userInfo},#{headImg,jdbcType=BLOB},#{createTime,jdbcType=TIMESTAMP}
+		)
+	</insert>
+	<insert id="insertUserAndGetId" useGeneratedKeys="true" keyProperty="id">
+		insert into sys_user (
+			user_name, user_password, user_email, user_info, head_img, create_time
+		)
+		values (
+		  	#{userName}, #{userPassword} ,#{userEmail},
+		   #{userInfo},#{headImg,jdbcType=BLOB},#{createTime,jdbcType=TIMESTAMP}
+	   )
+	</insert>
+	<insert id="insertUserAndSelectKey">
+		insert into sys_user (
+			user_name, user_password, user_email, user_info, head_img, create_time
+		)
+		values (
+		   #{userName}, #{userPassword} ,#{userEmail},
+		   #{userInfo},#{headImg,jdbcType=BLOB},#{createTime,jdbcType=TIMESTAMP}
+	    )
+	    <selectKey keyProperty="id" keyColumn="id" resultType="long" order="AFTER">
+			select last_insert_id()
+		</selectKey>
+	</insert>
 
 </mapper>
