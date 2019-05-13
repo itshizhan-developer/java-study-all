@@ -2,90 +2,106 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.itshizhan.mybatisbeginner2master.mapper.UserMapper">
-	<resultMap id="userMap" type="com.itshizhan.mybatisbeginner2master.bean.SysUser">
-		<id column="id" property="id"/>
-		<result column="user_name" property="userName"/>
-		<result column="user_password" property="userPassword"/>
-		<result column="user_email" property="userEmail"/>
-		<result column="user_info" property="userInfo"/>
-		<result column="head_img" property="headImg" jdbcType="BLOB"/>
-		<result column="create_time" property="createTime" />
-	</resultMap>
+    <resultMap id="userMap" type="com.itshizhan.mybatisbeginner2master.bean.SysUser">
+        <id column="id" property="id"/>
+        <result column="user_name" property="userName"/>
+        <result column="user_password" property="userPassword"/>
+        <result column="user_email" property="userEmail"/>
+        <result column="user_info" property="userInfo"/>
+        <result column="head_img" property="headImg" jdbcType="BLOB"/>
+        <result column="create_time" property="createTime"/>
+    </resultMap>
+
+    <select id="selectById" resultMap="userMap">
+        select id,
+               user_name,
+               user_password,
+               user_email,
+               user_info,
+               head_img,
+               create_time
+        from sys_user
+        where id = #{id}
+    </select>
+
+    <select id="selectAll" resultMap="userMap">
+        select id,
+               user_name,
+               user_password,
+               user_email,
+               user_info,
+               head_img,
+               create_time
+        from sys_user
+    </select>
+    <select id="selectRolesByUserId" resultType="com.itshizhan.mybatisbeginner2master.bean.SysRole">
+        select r.id,
+               r.role_name     roleName,
+               r.enabled       enabled,
+               r.create_by     createBy,
+               r.create_time   createTime,
+               u.user_name  AS 'user.username',
+               u.user_email AS 'user.userEmail'
+        from sys_user u
+                 inner join sys_user_role ur on u.id = ur.user_id
+                 inner join sys_role r on r.id = ur.role_id
+        where u.id = #{userId}
+    </select>
+
+    <select id="selectUsersAndRolesByUserId"
+            resultType="com.itshizhan.mybatisbeginner2master.bean.SysRoleExtend">
+        select r.id,
+               r.role_name   roleName,
+               r.enabled     enabled,
+               r.create_by   createBy,
+               r.create_time createTime,
+               u.user_name   userName
+        from sys_user u
+                 inner join sys_user_role ur on u.id = ur.user_id
+                 inner join sys_role r on r.id = ur.role_id
+        where u.id = #{userId}
+
+    </select>
 
 
-	<select id="selectById" resultMap="userMap">
-		select
-		  id,user_name,user_password,user_email,user_info,head_img,create_time
-		from
-		  sys_user where id = #{id}
-	</select>
+    <insert id="insertUser">
+        insert into sys_user (id, user_name, user_password, user_email, user_info, head_img, create_time)
+        values (#{id}, #{userName}, #{userPassword}, #{userEmail},
+                #{userInfo}, #{headImg,jdbcType=BLOB}, #{createTime,jdbcType=TIMESTAMP})
+    </insert>
+    <insert id="insertUserAndGetId" useGeneratedKeys="true" keyProperty="id">
+        insert into sys_user (user_name, user_password, user_email, user_info, head_img, create_time)
+        values (#{userName}, #{userPassword}, #{userEmail},
+                #{userInfo}, #{headImg,jdbcType=BLOB}, #{createTime,jdbcType=TIMESTAMP})
+    </insert>
+    <insert id="insertUserAndSelectKey">
+        insert into sys_user (
+        user_name, user_password, user_email, user_info, head_img, create_time
+        )
+        values (
+        #{userName}, #{userPassword} ,#{userEmail},
+        #{userInfo},#{headImg,jdbcType=BLOB},#{createTime,jdbcType=TIMESTAMP}
+        )
+        <selectKey keyProperty="id" keyColumn="id" resultType="long" order="AFTER">
+            select last_insert_id()
+        </selectKey>
+    </insert>
 
-	<select id="selectAll" resultMap="userMap">
-		select
-		  id,user_name,user_password,user_email,user_info,head_img,create_time
-		from sys_user
-	</select>
-	<select id="selectRolesByUserId" resultType="com.itshizhan.mybatisbeginner2master.bean.SysRole">
-		  select
-		   	r.id,
-		  	r.role_name roleName,
-		    r.enabled enabled,
-		    r.create_by createBy,
-		  	r.create_time createTime,
-		  	u.user_name AS 'user.username',
-		  	u.user_email AS 'user.userEmail'
-		  from sys_user u
-		  inner join sys_user_role ur on u.id = ur.user_id
-		  inner join sys_role r on r.id = ur.role_id
-		  where u.id = #{userId}
-	</select>
+    <update id="updateById">
+        update sys_user
+        set user_name   = #{userName},
+            user_email  = #{userEmail},
+            user_info   = #{userInfo},
+            head_img    = #{headImg},
+            create_time =#{createTime}
+        where id = #{id}
 
-	<select id="selectUsersAndRolesByUserId"
-			resultType="com.itshizhan.mybatisbeginner2master.bean.SysRoleExtend">
-		select
-			r.id,
-			r.role_name roleName,
-			r.enabled enabled,
-			r.create_by createBy,
-			r.create_time createTime,
-			u.user_name userName
-		from sys_user u
-				 inner join sys_user_role ur on u.id = ur.user_id
-				 inner join sys_role r on r.id = ur.role_id
-		where u.id = #{userId}
+    </update>
 
-	</select>
-
-
-	<insert id="insertUser" >
-		insert into sys_user (
-		  id,user_name, user_password, user_email, user_info, head_img, create_time
-		)
-		values (
-			#{id},#{userName}, #{userPassword} ,#{userEmail},
-		    #{userInfo},#{headImg,jdbcType=BLOB},#{createTime,jdbcType=TIMESTAMP}
-		)
-	</insert>
-	<insert id="insertUserAndGetId" useGeneratedKeys="true" keyProperty="id">
-		insert into sys_user (
-			user_name, user_password, user_email, user_info, head_img, create_time
-		)
-		values (
-		  	#{userName}, #{userPassword} ,#{userEmail},
-		   #{userInfo},#{headImg,jdbcType=BLOB},#{createTime,jdbcType=TIMESTAMP}
-	   )
-	</insert>
-	<insert id="insertUserAndSelectKey">
-		insert into sys_user (
-			user_name, user_password, user_email, user_info, head_img, create_time
-		)
-		values (
-		   #{userName}, #{userPassword} ,#{userEmail},
-		   #{userInfo},#{headImg,jdbcType=BLOB},#{createTime,jdbcType=TIMESTAMP}
-	    )
-	    <selectKey keyProperty="id" keyColumn="id" resultType="long" order="AFTER">
-			select last_insert_id()
-		</selectKey>
-	</insert>
+    <delete id="deleteById">
+        delete
+        from sys_user
+        where id = #{id}
+    </delete>
 
 </mapper>

@@ -55,4 +55,8 @@ public interface UserMapper {
 	 * @return
 	 */
 	int insertUserAndSelectKey (SysUser sysUser);
+
+	int updateById(SysUser sysUser);
+
+	int deleteById(Long id);
 }

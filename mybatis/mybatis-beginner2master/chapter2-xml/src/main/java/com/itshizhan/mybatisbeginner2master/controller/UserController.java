@@ -103,5 +103,36 @@ public class UserController {
 
 	}
 
+	@GetMapping("/updateById")
+	public String updateById(Long id){
+		SysUser user  = userMapper.selectById(id);
+		if(user!=null){
+			//修改用户名
+			user.setUserName("test1_updateById");
+			int i = userMapper.updateById(user);
+			if(i>0){
+				return "修改成功";
+			}else{
+				return "修改失败";
+			}
+		}else{
+			return "没有查询到需要修改的用户";
+		}
+
+
+	}
+
+	@GetMapping("/deleteById")
+	public String deleteById(Long id){
+		int i  = userMapper.deleteById(id);
+		if(i>0){
+			return "删除成功";
+		}else{
+			return "删除失败";
+		}
+
+	}
+
+
 
 }
