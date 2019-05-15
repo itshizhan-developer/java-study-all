@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.itshizhan.mybatisbeginner2master.mapper.RoleMapper">
+<mapper namespace="com.itshizhan.chapter2.mapper.RoleMapper">
 
     <select id="selectRolesByUserIdAndRoleEnabled"
-            resultType="com.itshizhan.mybatisbeginner2master.bean.SysRole">
+            resultType="com.itshizhan.chapter2.bean.SysRole">
         select r.id          id,
                r.role_name   roleName,
                r.enabled,
@@ -17,7 +17,7 @@
           and r.enabled = #{param2}
     </select>
     <select id="selectRolesByUserIdAndRoleEnabled1"
-            resultType="com.itshizhan.mybatisbeginner2master.bean.SysRole">
+            resultType="com.itshizhan.chapter2.bean.SysRole">
         select r.id          id,
                r.role_name   roleName,
                r.enabled,
@@ -30,7 +30,7 @@
           and r.enabled = #{enabled}
     </select>
     <select id="selectRolesByUserIdAndRoleEnabled2"
-            resultType="com.itshizhan.mybatisbeginner2master.bean.SysRole">
+            resultType="com.itshizhan.chapter2.bean.SysRole">
         select r.id          id,
                r.role_name   roleName,
                r.enabled,

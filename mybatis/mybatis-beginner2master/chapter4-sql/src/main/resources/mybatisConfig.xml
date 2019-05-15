@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeHandlers>
-        <typeHandler handler="com.itshizhan.chapter2.enums.EnumTypeHandler"
-                     javaType="com.itshizhan.chapter2.enums.Enabled" />
+        <typeHandler handler="com.itshizhan.chapter4.enums.EnumTypeHandler"
+                     javaType="com.itshizhan.chapter4.enums.Enabled" />
     </typeHandlers>
 </configuration>

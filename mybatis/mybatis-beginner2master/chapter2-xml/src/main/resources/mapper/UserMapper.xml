@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.itshizhan.mybatisbeginner2master.mapper.UserMapper">
-    <resultMap id="userMap" type="com.itshizhan.mybatisbeginner2master.bean.SysUser">
+<mapper namespace="com.itshizhan.chapter2.mapper.UserMapper">
+    <resultMap id="userMap" type="com.itshizhan.chapter2.bean.SysUser">
         <id column="id" property="id"/>
         <result column="user_name" property="userName"/>
         <result column="user_password" property="userPassword"/>
@@ -34,7 +34,7 @@
                create_time
         from sys_user
     </select>
-    <select id="selectRolesByUserId" resultType="com.itshizhan.mybatisbeginner2master.bean.SysRole">
+    <select id="selectRolesByUserId" resultType="com.itshizhan.chapter2.bean.SysRole">
         select r.id,
                r.role_name     roleName,
                r.enabled       enabled,
@@ -49,7 +49,7 @@
     </select>
 
     <select id="selectUsersAndRolesByUserId"
-            resultType="com.itshizhan.mybatisbeginner2master.bean.SysRoleExtend">
+            resultType="com.itshizhan.chapter2.bean.SysRoleExtend">
         select r.id,
                r.role_name   roleName,
                r.enabled     enabled,

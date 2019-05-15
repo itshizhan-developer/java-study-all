@@ -17,6 +17,7 @@
 
     <modules>
         <module>chapter2-xml</module>
+        <module>chapter4-sql</module>
     </modules>
 
     <parent>
