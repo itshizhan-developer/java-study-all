@@ -2,6 +2,22 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.itshizhan.chapter4.mapper.UserMapper">
+
+    <insert id="insertUserSelective" useGeneratedKeys="true" keyProperty="id">
+        insert into sys_user(
+            user_name, user_password,
+            <if test="userEmail!=null and userEmail!=''">
+                user_email,
+            </if>
+            user_info)
+            values (
+            #{userName},#{userPassword},
+            <if test="userEmail!=null and userEmail!=''">
+                #{userEmail},
+            </if>
+            #{userInfo}
+        );
+    </insert>
     <update id="updateByIdSelective" parameterType="com.itshizhan.chapter4.bean.SysUser">
         update sys_user
         set
@@ -26,19 +42,40 @@
 
     <select id="selectUserWithIf" resultType="com.itshizhan.chapter4.bean.SysUser">
         select id,
+        user_name userName,
+        user_email userEmail,
+        user_info userInfo,
+        head_img headImg,
+        create_time createTime
+        from sys_user
+        where 1=1
+        <if test="userName!=null and userName!=''">
+            and user_name like concat('%',#{userName},'%')
+        </if>
+        <if test="userEmail!=null and userEmail!=''">
+            and user_email = #{userEmail}
+        </if>
+
+    </select>
+    <select id="selectByIdOrUserName" resultType="com.itshizhan.chapter4.bean.SysUser">
+        select  id,
                user_name userName,
                user_email userEmail,
                user_info userInfo,
                head_img headImg,
                create_time createTime
-        from sys_user
-        where 1=1
-          <if test="userName!=null and userName!=''">
-               and user_name like concat('%',#{userName},'%')
-          </if>
-          <if test="userEmail!=null and userEmail!=''">
-              and user_email = #{userEmail}
-          </if>
-
+        from sys_user u
+        where 1 = 1
+          <choose>
+              <when test="id!=null">
+                  and  id = #{id}
+              </when>
+              <when test="userName!=null and userName!=''">
+                  and user_name = #{userName}
+              </when>
+              <otherwise>
+                  and 1=2
+              </otherwise>
+          </choose>
     </select>
 </mapper>

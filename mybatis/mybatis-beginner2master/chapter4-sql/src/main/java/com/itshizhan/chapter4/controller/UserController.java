@@ -30,4 +30,15 @@ public class UserController {
 	public int updateByIdSelective(SysUser user){
 		return userMapper.updateByIdSelective(user);
 	}
+
+	@PostMapping("/insertUserSelective")
+	public Long insertUserSelective(SysUser user){
+		userMapper.insertUserSelective(user);
+		return user.getId();
+	}
+	@PostMapping("/selectByIdOrUserName")
+	public SysUser selectByIdOrUserName(SysUser user){
+		return userMapper.selectByIdOrUserName(user);
+	}
+
 }

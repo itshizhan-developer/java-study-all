@@ -10,5 +10,10 @@ import java.util.List;
 public interface UserMapper {
 	List<SysUser> selectUserWithIf(SysUser sysUser);
 
-	int updateByIdSelective(SysUser sysUser) ;
+	int updateByIdSelective(SysUser sysUser);
+
+	int insertUserSelective(SysUser sysUser) ;
+
+	SysUser selectByIdOrUserName(SysUser sysUser) ;
+
 }
