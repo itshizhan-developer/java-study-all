@@ -18,6 +18,15 @@
             #{userInfo}
         );
     </insert>
+    <insert id="insertUserByList" >
+        insert  into sys_user(user_name,user_password, user_email, user_info, head_img, create_time) values
+        <foreach collection="userList" item="user" separator=",">
+            (
+                #{user.userName},#{user.userPassword},#{user.userEmail},#{user.userInfo},
+                #{user.headImg, jdbcType=BLOB},#{user.createTime, jdbcType=TIMESTAMP}
+            )
+        </foreach>
+    </insert>
     <update id="updateByIdSelective" parameterType="com.itshizhan.chapter4.bean.SysUser">
         update sys_user
         set
@@ -77,5 +86,57 @@
                   and 1=2
               </otherwise>
           </choose>
+    </select>
+    <select id="selectByIdList" resultType="com.itshizhan.chapter4.bean.SysUser">
+        select id,
+               user_name userName,
+               user_email userEmail,
+               user_info userInfo,
+               head_img headImg,
+               create_time createTime
+        from sys_user
+        where id in
+        <foreach collection="list" item="id" separator="," open="(" close=")" index="i">
+            #{id}
+        </foreach>
+    </select>
+    <select id="selectByIdList1" resultType="com.itshizhan.chapter4.bean.SysUser">
+        select id,
+        user_name userName,
+        user_email userEmail,
+        user_info userInfo,
+        head_img headImg,
+        create_time createTime
+        from sys_user
+        where id in
+        <foreach collection="list" item="id" separator="," open="(" close=")" index="i">
+            #{id}
+        </foreach>
+    </select>
+    <select id="selectByIdList2" resultType="com.itshizhan.chapter4.bean.SysUser">
+        select id,
+        user_name userName,
+        user_email userEmail,
+        user_info userInfo,
+        head_img headImg,
+        create_time createTime
+        from sys_user
+        where id in
+        <foreach collection="array" item="id" separator="," open="(" close=")" index="i">
+            #{id}
+        </foreach>
+    </select>
+    <select id="selectByIdList3" resultType="com.itshizhan.chapter4.bean.SysUser">
+        select id,
+        user_name userName,
+        user_email userEmail,
+        user_info userInfo,
+        head_img headImg,
+        create_time createTime
+        from sys_user
+        where id in
+        <foreach collection="list2" item="id" separator="," open="(" close=")" index="i">
+            #{id}
+        </foreach>
     </select>
 </mapper>
