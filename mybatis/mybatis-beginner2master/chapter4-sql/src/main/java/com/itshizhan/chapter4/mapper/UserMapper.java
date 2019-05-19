@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 
 @Repository
@@ -33,5 +34,8 @@ public interface UserMapper {
 
 	//批量插入用户
 	int insertUserByList(@Param("userList") List<SysUser> userList);
+
+	// 通过map 动态更新
+	int updateByMap(Map<String,Object> map);
 
 }

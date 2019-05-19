@@ -7,4 +7,9 @@
         <typeAlias type="com.alibaba.fastjson.JSONObject" alias="jsonObject"></typeAlias>
         <typeAlias type="com.itshizhan.shirorbac.model.One2Many" alias="one2many"></typeAlias>
     </typeAliases>
+    <!--<databaseIdProvider type="DB_VENDOR">-->
+        <!--<property name="MySQL" value="mysql"/>-->
+        <!--<property name="Oracle" value="oracle"/>-->
+        <!--<property name="PostgreSQL" value="postgresql"/>-->
+    <!--</databaseIdProvider>-->
 </configuration>

@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 @RestController
@@ -84,5 +86,17 @@ public class UserController {
 		return userMapper.insertUserByList(userList);
 	}
 
+
+	// foreach map 动态更新
+	@GetMapping("/updateByMap")
+	public int updateByMap(){
+
+		Map<String,Object> map = new HashMap<>();
+		map.put("id",1035L);
+		//map.put("user_email","1035@qq.com");
+		map.put("user_info","Test_1035_user_info");
+		return  userMapper.updateByMap(map);
+
+	}
 
 }

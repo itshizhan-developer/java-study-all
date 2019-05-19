@@ -46,7 +46,15 @@
             create_time = #{createTime},
         </if>
         id = #{id}
-        where id = #{id};
+        where id = #{id}
+    </update>
+    <update id="updateByMap">
+        update sys_user
+        set  
+        <foreach collection="_parameter" item="val" index="key" separator=",">
+          #{key} = #{val}
+        </foreach>
+        where id = #{id}
     </update>
 
     <select id="selectUserWithIf" resultType="com.itshizhan.chapter4.bean.SysUser">
@@ -59,6 +67,7 @@
         from sys_user
         where 1=1
         <if test="userName!=null and userName!=''">
+            <bind name="userNameLike" value="'%'+  userName +'%'"/>
             and user_name like concat('%',#{userName},'%')
         </if>
         <if test="userEmail!=null and userEmail!=''">
@@ -139,4 +148,6 @@
             #{id}
         </foreach>
     </select>
+
+    
 </mapper>
