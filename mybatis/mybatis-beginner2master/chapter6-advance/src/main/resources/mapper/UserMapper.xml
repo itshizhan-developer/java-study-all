@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.itshizhan.chapter6.mapper.UserMapper">
+    <resultMap id="userMap" type="com.itshizhan.common.bean.SysUser">
+        <id property="id" column="id"/>
+        <result column="user_name" property="userName"/>
+        <result column="user_password" property="userPassword"/>
+        <result column="user_email" property="userEmail"/>
+        <result column="user_info" property="userInfo"/>
+        <result column="head_img" property="headImg"/>
+        <result column="create_time"/>
+    </resultMap>
+    <resultMap id="userRoleMap"
+               extends="userMap"
+               type="com.itshizhan.common.bean.SysUser">
+        <result column="role_id" property="sysRole.id"/>
+        <result column="role_name" property="sysRole.roleName"/>
+        <result column="enabled" property="sysRole.enabled"/>
+        <result column="role_create_time" property="sysRole.createTime"/>
+    </resultMap>
+
+    <resultMap id="userRoleMap2"   extends="userMap"
+               type="com.itshizhan.common.bean.SysUser">
+        <association property="sysRole"
+                     columnPrefix="role_"
+                     resultMap="com.itshizhan.chapter4.mapper.RoleMapper.roleMap"
+                     >
+            <!--<result column="id" property="id"/>-->
+            <!--<result column="name" property="roleName"/>-->
+            <!--<result column="enabled" property="enabled"/>-->
+            <!--<result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>-->
+        </association>
+    </resultMap>
+
+    <select id="selectUserAndRoleById" resultType="com.itshizhan.common.bean.SysUser">
+      select
+        u.id,
+        u.user_name userName,
+        u.user_password userPassword,
+        u.user_email userEmail,
+        u.user_info userInfo,
+        u.head_img headImg,
+        u.create_time createTime,
+        r.role_name "sysRole.roleName",
+        r.enabled "sysRole.enabled"
+
+      from sys_user u
+      inner join sys_user_role ur on  ur.user_id = u.id
+      inner join  sys_role r on r.id = ur.role_id
+      where u.id = #{id}
+
+    </select>
+
+    <select id="selectUserAndRoleById1" resultMap="userRoleMap">
+        select
+            u.id,
+            u.user_name,
+            u.user_password,
+            u.user_email,
+            u.user_info,
+            u.head_img,
+            u.create_time,
+            r.id role_id,
+            r.role_name,
+            r.enabled,
+            r.create_time role_create_time
+        from sys_user u
+                 inner join sys_user_role ur on  ur.user_id = u.id
+                 inner join  sys_role r on r.id = ur.role_id
+        where u.id = #{id}
+    </select>
+
+    <select id="selectUserAndRoleById2" resultMap="userRoleMap2">
+        select
+            u.id,
+            u.user_name,
+            u.user_password,
+            u.user_email,
+            u.user_info,
+            u.head_img,
+            u.create_time,
+
+            r.id role_id,
+            r.role_name,
+            r.enabled role_enabled,
+            r.create_time role_create_time
+        from sys_user u
+                 inner join sys_user_role ur on  ur.user_id = u.id
+                 inner join  sys_role r on r.id = ur.role_id
+        where u.id = #{id}
+    </select>
+
+    <resultMap id="userRoleMapSelect"
+               type="com.itshizhan.common.bean.SysUser"
+               extends="userMap">
+        <association property="sysRole" column="{id=role_id}"
+            fetchType="lazy"
+            select="com.itshizhan.chapter6.mapper.RoleMapper.selectRoleById"/>
+
+    </resultMap>
+
+    <select id="selectUserAndRoleById3" resultMap="userRoleMapSelect">
+        select
+            u.id,
+            u.user_name,
+            u.user_password,
+            u.user_email,
+            u.user_info,
+            u.head_img,
+            u.create_time,
+
+            ur.role_id
+        from sys_user u
+                 inner join  sys_user_role ur on u.id = ur.user_id
+        where u.id = #{id}
+
+    </select>
+
+
+</mapper>

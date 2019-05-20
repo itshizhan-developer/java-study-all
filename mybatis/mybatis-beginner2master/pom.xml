@@ -18,6 +18,8 @@
     <modules>
         <module>chapter2-xml</module>
         <module>chapter4-sql</module>
+        <module>common</module>
+        <module>chapter6-advance</module>
     </modules>
 
     <parent>
