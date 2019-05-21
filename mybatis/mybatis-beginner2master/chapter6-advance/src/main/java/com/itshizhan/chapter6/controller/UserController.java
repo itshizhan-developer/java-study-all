@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -36,6 +38,12 @@ public class UserController {
 	public SysUser selectUserAndRoleById3(){
 
 		return userMapper.selectUserAndRoleById3(1058L);
+	}
+
+	@GetMapping("selectAllUserAndRoles")
+	public List<SysUser> selectAllUserAndRoles(){
+
+		return userMapper.selectAllUserAndRoles();
 	}
 
 

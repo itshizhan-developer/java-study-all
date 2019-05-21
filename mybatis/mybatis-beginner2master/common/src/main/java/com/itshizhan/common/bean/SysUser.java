@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -49,5 +50,9 @@ public class SysUser implements Serializable {
 	 */
 	private SysRole sysRole;
 
+	/**
+	 * 一个用户多个角色
+	 */
+	private List<SysRole> roleList;
 
 }

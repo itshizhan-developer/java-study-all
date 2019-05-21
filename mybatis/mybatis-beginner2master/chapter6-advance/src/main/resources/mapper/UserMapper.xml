@@ -9,7 +9,7 @@
         <result column="user_email" property="userEmail"/>
         <result column="user_info" property="userInfo"/>
         <result column="head_img" property="headImg"/>
-        <result column="create_time"/>
+        <result column="create_time" property="createTime"/>
     </resultMap>
     <resultMap id="userRoleMap"
                extends="userMap"
@@ -24,7 +24,7 @@
                type="com.itshizhan.common.bean.SysUser">
         <association property="sysRole"
                      columnPrefix="role_"
-                     resultMap="com.itshizhan.chapter4.mapper.RoleMapper.roleMap"
+                     resultMap="com.itshizhan.chapter6.mapper.RoleMapper.roleMap"
                      >
             <!--<result column="id" property="id"/>-->
             <!--<result column="name" property="roleName"/>-->
@@ -116,6 +116,36 @@
         where u.id = #{id}
 
     </select>
+    <select id="selectAllUserAndRoles" resultMap="allUserAndRolesMap">
+        select
+            u.id,
+            u.user_name,
+            u.user_password,
+            u.user_email,
+            u.user_info,
+            u.head_img,
+            u.create_time,
 
 
+            r.id role_id,
+            r.role_name,
+            r.enabled role_enabled,
+            r.create_time role_create_time
+
+        from sys_user u
+        inner join  sys_user_role ur on u.id = ur.user_id
+        inner join sys_role r on r.id = ur.role_id
+
+    </select>
+
+    <resultMap id="allUserAndRolesMap"
+               extends="userMap"
+               type="com.itshizhan.common.bean.SysUser">
+            <collection property="roleList" ofType="com.itshizhan.common.bean.SysRole" >
+                <id column="role_id" property="id"/>
+                <result column="role_name" property="roleName"/>
+                <result column="role_enabled" property="enabled"/>
+                <result column="role_create_time" property="createTime"/>
+            </collection>
+    </resultMap>
 </mapper>
