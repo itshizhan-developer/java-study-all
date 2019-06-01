@@ -1,6 +1,7 @@
 package com.itshizhan.iterator;
 
 public class Main {
+
 	public static void main(String[] args) {
 		BookShelf bookShelf = new BookShelf(4);
 		bookShelf.appendBook(new Book("Arround the World in 80 days"));
@@ -14,4 +15,5 @@ public class Main {
 			System.out.println(book.getName());
 		}
 	}
+
 }
