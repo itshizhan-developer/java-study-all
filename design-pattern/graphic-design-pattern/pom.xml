@@ -11,6 +11,7 @@
     <modules>
         <module>1-iterator</module>
         <module>2-adapter</module>
+        <module>3-template_method</module>
     </modules>
 
 
