@@ -1,5 +1,6 @@
 package com.itshizhan.hessianclient.controller;
 
+
 import com.itshizhan.hessianclient.service.HelloWorldService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,4 +16,5 @@ public class HelloController {
 	public String test() {
 		return helloWorldService.sayHello("Spring boot with Hessian.");
 	}
+
 }
